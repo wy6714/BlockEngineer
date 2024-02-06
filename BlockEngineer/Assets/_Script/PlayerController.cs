@@ -16,14 +16,9 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
 
     public ParticleSystem dust;
-    public GameObject level1Collider;
 
-    //public AudioSource winAudio;
     public static event Action<GameObject> collectFruit;
-    public static event Action<GameObject> GetFlag;
     public static event Action<GameObject> playerDie;
-    public static event Action<GameObject> showLevel2;
-    public static event Action<GameObject> EnterLevel2;
 
     // Start is called before the first frame update
     void Start()
@@ -77,21 +72,7 @@ public class PlayerController : MonoBehaviour
             playerDie?.Invoke(gameObject);
             Destroy(gameObject,0.2f);
         }
-        if (other.CompareTag("Flag"))
-        {
-            GetFlag?.Invoke(other.gameObject);
-        }
-        if (other.CompareTag("champion"))
-        {
-            Debug.Log("collide champion");
-            showLevel2?.Invoke(gameObject);
-            level1Collider.SetActive(false);
-        }
-        if (other.CompareTag("levelChecker"))
-        {
-            Debug.Log("collide level checker");
-            EnterLevel2?.Invoke(gameObject);
-        }
+      
         if (other.CompareTag("saw"))
         {
             playerDie?.Invoke(gameObject);
@@ -105,15 +86,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log("fall down");
             SceneManager.LoadScene("level1");
         }
-        //if (other.CompareTag("champion"))
-        //{
-        //    winAudio.Play();
-        //}
-        
-        //if (other.CompareTag("Spikes"))
-        //{
-        //    Debug.Log("player collide with spikes");
-        //}
     }
 
     private void createDust()

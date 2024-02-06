@@ -5,13 +5,11 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource errorAudio;
-    [SerializeField] private AudioSource flagAudio;
     [SerializeField] private AudioSource getFruitAudio;
     [SerializeField] private AudioSource hitAudio;
     [SerializeField] private AudioSource JumpAudio;
     [SerializeField] private AudioSource noMoneyAudio;
     [SerializeField] private AudioSource placeBlockAudio;
-    [SerializeField] private AudioSource winAudio;
 
     private void OnEnable()
     {
@@ -20,10 +18,6 @@ public class AudioManager : MonoBehaviour
         PlayerController.collectFruit += playGetFruitAudio;//get Fruit Audio
         
         PlayerController.playerDie += playerDieAudio;
-
-        PlayerController.GetFlag += playGetFlagAudio;
-
-        //GameManager.WinHappened += playWinAudio;
 
         Grid.updateFruit += playPlaceBlockAudio;//place block Audio
 
@@ -41,10 +35,6 @@ public class AudioManager : MonoBehaviour
         PlayerController.collectFruit -= playGetFruitAudio;
 
         PlayerController.playerDie -= playerDieAudio;
-
-        PlayerController.GetFlag -= playGetFlagAudio;
-
-        //GameManager.WinHappened -= playWinAudio;
 
         Grid.updateFruit -= playPlaceBlockAudio;
 
@@ -78,17 +68,5 @@ public class AudioManager : MonoBehaviour
     public void playWhaleDieAudio(GameObject obj) => hitAudio.Play();
 
     public void playerErrorAudio(GameObject obj) => errorAudio.Play();
-
-    //public void playWinAudio(GameObject obj) => winAudio.Play();
-
-    public void playGetFlagAudio(GameObject obj)
-    {
-        Flag FlagScript = obj.GetComponent<Flag>();
-        if(FlagScript.num != 0)
-        {
-            flagAudio.Play();
-        }
-    }
-
 
 }
