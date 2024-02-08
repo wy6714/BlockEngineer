@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     public static event Action<GameObject> collectFruit;
     public static event Action<GameObject> playerDie;
+    public static event Action<GameObject> getKeyHappens;
 
     // Start is called before the first frame update
     void Start()
@@ -85,6 +86,12 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("fall down");
             SceneManager.LoadScene("level1");
+        }
+
+        if (other.CompareTag("key"))
+        {
+            Debug.Log("hit key");
+            getKeyHappens?.Invoke(other.gameObject);
         }
     }
 

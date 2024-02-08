@@ -8,11 +8,8 @@ TagManager:
   - Enemy
   - Spikes
   - Fall
-  - Flag
-  - champion
-  - levelChecker
-  - win
   - saw
+  - key
   layers:
   - Default
   - TransparentFX
