@@ -5,12 +5,13 @@ using TMPro;
 
 public class UIManagment : MonoBehaviour
 {
+
     public TMP_Text fruitNumText;
     public static int fruitNum;
 
     private void OnEnable()
     {
-        fruitNum = 100;
+        fruitNum = 50;
         fruitNumText.text = ":" + fruitNum.ToString();
         Grid.updateFruit += UpdateFruitText;
         PlayerController.collectFruit += CollectFruitUI;
@@ -24,17 +25,17 @@ public class UIManagment : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.gm.currentBlock != null)
+        if (GameManager.gm.currentBlock != null)
         {
             Block blockScript = GameManager.gm.currentBlock.GetComponent<Block>();
         }
-        
+
     }
     public void UpdateFruitText(int cost)
     {
@@ -45,9 +46,9 @@ public class UIManagment : MonoBehaviour
         }
         else
         {
-            fruitNumText.text = fruitNum.ToString()+" Not enough!";
+            fruitNumText.text = fruitNum.ToString() + " Not enough!";
         }
-        
+
     }
 
     public void CollectFruitUI(GameObject fruitObj)

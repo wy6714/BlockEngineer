@@ -22,7 +22,7 @@ public class Door : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -54,10 +54,13 @@ public class Door : MonoBehaviour
         2. destory key in case get it multiple times
 
         */
+        Animator keyAnim = keyObj.GetComponent<Animator>();
+        keyAnim.SetTrigger("getKey");
+        Destroy(keyObj, 0.3f);
     }
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(targetTrans.transform.position, 0.2f);
-        
+
     }
 }
