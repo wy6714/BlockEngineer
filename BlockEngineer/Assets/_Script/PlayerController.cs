@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public static event Action<GameObject> playerDie;
     public static event Action<GameObject> getKeyHappens;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     private void Flip()//change side
     {
-        if(isFacingRight && horizontal <0f || !isFacingRight && horizontal > 0f)
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
             createDust();
             isFacingRight = !isFacingRight;
@@ -71,9 +72,9 @@ public class PlayerController : MonoBehaviour
             Animator whaleAnim = other.gameObject.GetComponent<Animator>();
             whaleAnim.SetTrigger("WhaleEat");
             playerDie?.Invoke(gameObject);
-            Destroy(gameObject,0.2f);
+            Destroy(gameObject, 0.2f);
         }
-      
+
         if (other.CompareTag("saw"))
         {
             playerDie?.Invoke(gameObject);
@@ -91,7 +92,10 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("key"))
         {
             Debug.Log("hit key");
+            //chestKey = true;
+            //keyAnim.SetTrigger("getKey");
             getKeyHappens?.Invoke(other.gameObject);
+
         }
     }
 

@@ -10,13 +10,14 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource JumpAudio;
     [SerializeField] private AudioSource noMoneyAudio;
     [SerializeField] private AudioSource placeBlockAudio;
+    [SerializeField] private AudioSource getKeyAudio;
 
     private void OnEnable()
     {
         JumpBlock.JumpHappened += jumpAudio;
 
         PlayerController.collectFruit += playGetFruitAudio;//get Fruit Audio
-        
+
         PlayerController.playerDie += playerDieAudio;
 
         Grid.updateFruit += playPlaceBlockAudio;//place block Audio
@@ -24,8 +25,9 @@ public class AudioManager : MonoBehaviour
         Grid.ErrorHappened += playerErrorAudio;
 
         Whale.WhaleDieHappen += playWhaleDieAudio;
+        PlayerController.getKeyHappens += playeGetKeyAudio;
 
-        
+
     }
 
     private void OnDisable()
@@ -41,23 +43,24 @@ public class AudioManager : MonoBehaviour
         Grid.ErrorHappened -= playerErrorAudio;
 
         Whale.WhaleDieHappen -= playWhaleDieAudio;
+        PlayerController.getKeyHappens -= playeGetKeyAudio;
 
-        
+
 
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void jumpAudio(GameObject obj)=>JumpAudio.Play();
+    public void jumpAudio(GameObject obj) => JumpAudio.Play();
 
     public void playGetFruitAudio(GameObject obj) => getFruitAudio.Play();
 
@@ -68,5 +71,6 @@ public class AudioManager : MonoBehaviour
     public void playWhaleDieAudio(GameObject obj) => hitAudio.Play();
 
     public void playerErrorAudio(GameObject obj) => errorAudio.Play();
+    public void playeGetKeyAudio(GameObject obj) => getKeyAudio.Play();
 
 }

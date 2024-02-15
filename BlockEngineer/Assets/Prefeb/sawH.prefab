@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4636569363050715920}
   m_Layer: 0
   m_Name: sawH
-  m_TagString: Untagged
+  m_TagString: saw
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 4332548724969041002}
   m_Layer: 0
   m_Name: saw
-  m_TagString: Untagged
+  m_TagString: saw
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,7 +236,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -95022681, guid: 97e74c4142d214c8bac7b80536a02d8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
