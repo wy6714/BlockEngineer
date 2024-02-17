@@ -77,16 +77,20 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("saw"))
         {
-            playerDie?.Invoke(gameObject);
             anim.SetTrigger("playerDie");
-            Invoke("reStart", 0.5f);
+            playerDie?.Invoke(gameObject);
+            Destroy(gameObject, 0.2f);
+            //Invoke("reStart", 0.5f);
         }
 
         //if fall down, restart
         if (other.CompareTag("Fall"))
         {
             Debug.Log("fall down");
-            SceneManager.LoadScene("level1");
+            anim.SetTrigger("playerDie");
+            playerDie?.Invoke(gameObject);
+            Destroy(gameObject, 0.2f);
+            //SceneManager.LoadScene("level1");
         }
 
         if (other.CompareTag("key"))

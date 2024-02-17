@@ -11,6 +11,11 @@ public class GameManager : MonoBehaviour
     public GameObject normal;
     public GameObject spikes;
     public GameObject jumpBlock;
+    // public Transform RespwanPoint1;
+    // public Transform RespwanPoint2;
+    // public Transform RespwanPoint3;
+    // public Transform RespwanPoint4;
+    // public Transform RespwanPoint5;
 
     private string selected;
 
@@ -21,12 +26,12 @@ public class GameManager : MonoBehaviour
     }
     private void OnEnable()
     {
-      
+        PlayerController.playerDie += RespawnPoint;
     }
 
     private void OnDisable()
     {
-
+        PlayerController.playerDie -= RespawnPoint;
     }
     // Start is called before the first frame update
     void Start()
@@ -38,7 +43,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
+    }
+    public void RespawnPoint(GameObject player)
+    {
+        GameObject respawnPoint = GameObject.FindWithTag("Respawn");
+        Instantiate(player, respawnPoint.transform.position, respawnPoint.transform.rotation);
+
+        //player.transform.position = respawnPoint.transform.position;
     }
 
     public void SpikesButton()
@@ -62,6 +74,6 @@ public class GameManager : MonoBehaviour
         Debug.Log(selected);
     }
 
-    
-    
+
+
 }

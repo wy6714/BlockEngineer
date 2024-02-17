@@ -11,7 +11,7 @@ public class Whale : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private Transform targetPos;
-    public float speed=5;
+    public float speed = 5;
 
     public static event Action<GameObject> WhaleDieHappen;
 
@@ -37,14 +37,14 @@ public class Whale : MonoBehaviour
             speed = 5f;
         }
         Movement();
-        
+
     }
 
     public void Movement()
     {
         Vector2 point = targetPos.position - transform.position;
         //set move direction
-        if(targetPos == Right.transform)
+        if (targetPos == Right.transform)
         {
             rb.velocity = new Vector2(speed, 0);
         }
@@ -54,7 +54,7 @@ public class Whale : MonoBehaviour
         }
 
         //check to change target postion
-        if(Vector2.Distance(transform.position, targetPos.position) < 0.5f && targetPos == Left.transform)
+        if (Vector2.Distance(transform.position, targetPos.position) < 0.5f && targetPos == Left.transform)
         {
             Flip();
             targetPos = Right.transform;
@@ -96,7 +96,7 @@ public class Whale : MonoBehaviour
             Freze = true;
             anim.SetTrigger("WhaleEat");
             Freze = false;
-            Invoke("ResetScene", 1f);
+            //Invoke("ResetScene", 1f);
         }
     }
 
