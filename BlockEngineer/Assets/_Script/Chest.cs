@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class Chest : MonoBehaviour
     [SerializeField] private string nextLevel;
     [SerializeField] private bool isGetKey = false;
     private Animator anim;
+    public static event Action<GameObject> getChest;
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -39,6 +41,7 @@ public class Chest : MonoBehaviour
                 anim.SetTrigger("isChestUnlock");
                 //go to the next level in 1f seconds
                 //Debug.Log("Chest is unlocked");
+                getChest?.Invoke(gameObject);
                 Invoke("LoadScene", 1f);
             }
         }

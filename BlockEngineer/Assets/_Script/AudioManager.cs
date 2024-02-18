@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource noMoneyAudio;
     [SerializeField] private AudioSource placeBlockAudio;
     [SerializeField] private AudioSource getKeyAudio;
+    [SerializeField] private AudioSource getChestAudio;
 
     private void OnEnable()
     {
@@ -26,6 +27,7 @@ public class AudioManager : MonoBehaviour
 
         Whale.WhaleDieHappen += playWhaleDieAudio;
         PlayerController.getKeyHappens += playeGetKeyAudio;
+        Chest.getChest += playGetChestAudio;
 
 
     }
@@ -44,6 +46,7 @@ public class AudioManager : MonoBehaviour
 
         Whale.WhaleDieHappen -= playWhaleDieAudio;
         PlayerController.getKeyHappens -= playeGetKeyAudio;
+        Chest.getChest -= playGetChestAudio;
 
 
 
@@ -72,5 +75,6 @@ public class AudioManager : MonoBehaviour
 
     public void playerErrorAudio(GameObject obj) => errorAudio.Play();
     public void playeGetKeyAudio(GameObject obj) => getKeyAudio.Play();
+    public void playGetChestAudio(GameObject obj) => getChestAudio.Play();
 
 }
