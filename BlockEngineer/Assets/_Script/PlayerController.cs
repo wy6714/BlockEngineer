@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetTrigger("playerDie");
             playerDie?.Invoke(gameObject);
-            Destroy(gameObject, 0.2f);
+            Destroy(gameObject);
             //Invoke("reStart", 0.5f);
         }
 

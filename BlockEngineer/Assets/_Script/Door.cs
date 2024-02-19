@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,9 @@ public class Door : MonoBehaviour
     [SerializeField] private Transform cameraTargetTrans;
     [SerializeField] private GameObject currentLevel;
     [SerializeField] private GameObject nextLevel;
+    [SerializeField] private int cureentLevelNum = 2;
+
+    public static event Action<int> updateCurrenlevelNum;
     private void OnEnable()
     {
         PlayerController.getKeyHappens += getKeyHappens;
@@ -39,6 +43,9 @@ public class Door : MonoBehaviour
             {
                 other.gameObject.transform.position = targetTrans.position;
                 Camera.main.transform.position = cameraTargetTrans.position;
+
+                updateCurrenlevelNum?.Invoke(cureentLevelNum);
+
                 nextLevel.SetActive(true);
                 currentLevel.SetActive(false);
             }
