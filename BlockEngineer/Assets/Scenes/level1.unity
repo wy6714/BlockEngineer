@@ -3587,7 +3587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2571e46ae8c4b0886b06a1f37ef932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: test1
+  ID: Test All
   duration: 0
   fruitCost: 0
   fruitLeft: 0
@@ -3596,6 +3596,7 @@ MonoBehaviour:
   level1_3: 0
   level1_4: 0
   level1_5: 0
+  currentLevel: 1
 --- !u!4 &288437706
 Transform:
   m_ObjectHideFlags: 0
@@ -12192,6 +12193,7 @@ MonoBehaviour:
   cameraTargetTrans: {fileID: 1546487724}
   currentLevel: {fileID: 1251001590}
   nextLevel: {fileID: 285156077}
+  cureentLevelNum: 0
 --- !u!1001 &1025529403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13227,7 +13229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1109941209
 Transform:
   m_ObjectHideFlags: 0
