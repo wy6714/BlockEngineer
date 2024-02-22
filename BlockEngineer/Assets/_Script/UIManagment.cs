@@ -12,7 +12,7 @@ public class UIManagment : MonoBehaviour
 
     private void OnEnable()
     {
-        fruitNum = 50;
+        fruitNum = 20;
         fruitNumText.text = ":" + fruitNum.ToString();
         Grid.updateFruit += UpdateFruitText;
         PlayerController.collectFruit += CollectFruitUI;
