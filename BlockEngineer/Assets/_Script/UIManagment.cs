@@ -6,10 +6,10 @@ using TMPro;
 
 public class UIManagment : MonoBehaviour
 {
-
     public TMP_Text fruitNumText;
     public TMP_Text lifeText;
     public static int fruitNum;
+    public GameObject askExchangePanel;
 
     private void OnEnable()
     {
@@ -29,7 +29,7 @@ public class UIManagment : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        askExchangePanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -50,7 +50,7 @@ public class UIManagment : MonoBehaviour
         }
         else
         {
-            fruitNumText.text = fruitNum.ToString() + " Not enough!";
+            fruitNumText.text = fruitNum.ToString() + " Not enough! Click [Buy Fruits] Button on the right";
         }
 
     }
@@ -65,4 +65,29 @@ public class UIManagment : MonoBehaviour
     {
         lifeText.text = ":" + life.ToString(); 
     }
+
+    public void exchangeLifeFruit()
+    {
+        
+        GameManager.gm.life = GameManager.gm.life - 1;
+        fruitNum = fruitNum + 10;
+        lifeText.text = ":" + GameManager.gm.life.ToString();
+        fruitNumText.text = ":" + fruitNum.ToString();
+        askExchangePanel.SetActive(false);
+       
+       
+    }
+
+    public void closeaskExchangePanel()
+    {
+        askExchangePanel.SetActive(false);
+    }
+
+    public void exchangeButton()
+    {
+      
+        askExchangePanel.SetActive(true);
+       
+    }
+
 }

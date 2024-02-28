@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject spikes;
     public GameObject jumpBlock;
     public string currentLevel;
+    public bool gameMode;//avoid UI touch gameplay
 
     public static event Action<int> updateLife;
 
@@ -40,26 +41,25 @@ public class GameManager : MonoBehaviour
         selected = "null";
         currentBlock = null;
         life = 3;
+        gameMode = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    public void RespawnPoint(GameObject player)
-    {
-        if (life <= 0)
+        if (life < 0)
         {
             SceneManager.LoadScene(currentLevel);
         }
-        else
-        {
-            life = life - 1;
-            updateLife?.Invoke(life);
-            GameObject respawnPoint = GameObject.FindWithTag("Respawn");
-            Instantiate(player, respawnPoint.transform.position, respawnPoint.transform.rotation);
-        }
+    }
+    public void RespawnPoint(GameObject player)
+    {
+       
+        life = life - 1;
+        updateLife?.Invoke(life);
+        GameObject respawnPoint = GameObject.FindWithTag("Respawn");
+        Instantiate(player, respawnPoint.transform.position, respawnPoint.transform.rotation);
+        
         
 
         //player.transform.position = respawnPoint.transform.position;

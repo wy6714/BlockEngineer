@@ -38,7 +38,7 @@ public class Grid : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
+            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject && GameManager.gm.gameMode)
             {
                 Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, 10f);
 
