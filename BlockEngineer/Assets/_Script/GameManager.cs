@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,11 +12,11 @@ public class GameManager : MonoBehaviour
     public GameObject normal;
     public GameObject spikes;
     public GameObject jumpBlock;
-    // public Transform RespwanPoint1;
-    // public Transform RespwanPoint2;
-    // public Transform RespwanPoint3;
-    // public Transform RespwanPoint4;
-    // public Transform RespwanPoint5;
+    public string currentLevel;
+
+    public static event Action<int> updateLife;
+
+    public int life;
 
     private string selected;
 
@@ -39,20 +39,28 @@ public class GameManager : MonoBehaviour
     {
         selected = "null";
         currentBlock = null;
+        life = 3;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyUp(KeyCode.Return))
-        //{
-        //    SceneManager.LoadScene("level1");
-        //}
+        
     }
     public void RespawnPoint(GameObject player)
     {
-        GameObject respawnPoint = GameObject.FindWithTag("Respawn");
-        Instantiate(player, respawnPoint.transform.position, respawnPoint.transform.rotation);
+        if (life <= 0)
+        {
+            SceneManager.LoadScene(currentLevel);
+        }
+        else
+        {
+            life = life - 1;
+            updateLife?.Invoke(life);
+            GameObject respawnPoint = GameObject.FindWithTag("Respawn");
+            Instantiate(player, respawnPoint.transform.position, respawnPoint.transform.rotation);
+        }
+        
 
         //player.transform.position = respawnPoint.transform.position;
     }

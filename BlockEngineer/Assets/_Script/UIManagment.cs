@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
+
 
 public class UIManagment : MonoBehaviour
 {
 
     public TMP_Text fruitNumText;
+    public TMP_Text lifeText;
     public static int fruitNum;
 
     private void OnEnable()
@@ -16,12 +17,14 @@ public class UIManagment : MonoBehaviour
         fruitNumText.text = ":" + fruitNum.ToString();
         Grid.updateFruit += UpdateFruitText;
         PlayerController.collectFruit += CollectFruitUI;
+        GameManager.updateLife += lifeUI;
     }
 
     private void OnDisable()
     {
         Grid.updateFruit -= UpdateFruitText;
         PlayerController.collectFruit -= CollectFruitUI;
+        GameManager.updateLife -= lifeUI;
     }
     // Start is called before the first frame update
     void Start()
@@ -56,5 +59,10 @@ public class UIManagment : MonoBehaviour
     {
         fruitNum += 1;
         fruitNumText.text = ":" + fruitNum.ToString();
+    }
+
+    public void lifeUI(int life)
+    {
+        lifeText.text = ":" + life.ToString(); 
     }
 }

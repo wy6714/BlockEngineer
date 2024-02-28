@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        transform.localScale = new Vector2(1,1); // keep player always face right after they respawn
     }
 
     // Update is called once per frame
