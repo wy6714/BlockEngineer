@@ -54,13 +54,13 @@ public class Grid : MonoBehaviour
         }
 
 
-        if (Input.GetMouseButtonDown(0) && placeBlock != null)
+        if (Input.GetMouseButtonDown(0) && GameManager.gm.currentBlock != null)
         {
             //mouse click place block
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject && GameManager.gm.gameMode)
+            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
             {
                 Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, 10f);
 

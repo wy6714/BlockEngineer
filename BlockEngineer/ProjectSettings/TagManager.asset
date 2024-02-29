@@ -10,6 +10,8 @@ TagManager:
   - Fall
   - saw
   - key
+  - Flag
+  - champion
   layers:
   - Default
   - TransparentFX

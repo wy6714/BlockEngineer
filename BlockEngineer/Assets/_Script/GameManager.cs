@@ -15,14 +15,17 @@ public class GameManager : MonoBehaviour
     public GameObject normal;
     public GameObject spikes;
     public GameObject jumpBlock;
+    public Sprite pickaxeSprite;
     public string currentLevel;
-    public bool gameMode;//avoid UI touch gameplay
 
     public static event Action<int> updateLife;
+    public static event Action<bool> selectPickaxeHappen;
 
     public int life;
 
     private string selected;
+
+    public bool pickaxeMode = false;
 
 
     void Awake()
@@ -44,7 +47,7 @@ public class GameManager : MonoBehaviour
         selected = "null";
         currentBlock = null;
         life = 3;
-        gameMode = true;
+        pickaxeMode = false;
     }
 
     // Update is called once per frame
@@ -76,6 +79,7 @@ public class GameManager : MonoBehaviour
 
     public void SpikesButton()
     {
+        pickaxeMode = false;
         currentBlock = spikes;
         selected = "spikes";
         Debug.Log(selected);
@@ -83,6 +87,7 @@ public class GameManager : MonoBehaviour
 
     public void NormalButton()
     {
+        pickaxeMode = false;
         currentBlock = normal;
         selected = "normal";
         Debug.Log(selected);
@@ -90,11 +95,16 @@ public class GameManager : MonoBehaviour
 
     public void JumpButton()
     {
+        pickaxeMode = false;
         currentBlock = jumpBlock;
         selected = "jump";
         Debug.Log(selected);
     }
 
-
-
+    public void PickaxeBlcokButton()
+    {
+        currentBlock = null;
+        currentSelectUI.sprite = pickaxeSprite;
+        selectPickaxeHappen?.Invoke(true);
+    }
 }
