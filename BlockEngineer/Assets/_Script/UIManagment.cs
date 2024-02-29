@@ -106,5 +106,4 @@ public class UIManagment : MonoBehaviour
     public void closeCreditPanel() => creditPanel.SetActive(false);
     public void closeInstructionPaenl() => instructionPanel.SetActive(false);
     
-
 }

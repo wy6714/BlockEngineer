@@ -44,9 +44,13 @@ public class Grid : MonoBehaviour
         }
 
         //undo keycode
-        if (Input.GetKeyUp(KeyCode.Backspace) && previousStates.Count>0)
+        if (Input.GetKeyUp(KeyCode.Z) && previousStates.Count>0)
         {
-            UndoHappen?.Invoke(previousStates.Pop());
+            if(previousStates.Peek().placedBlock != null)//if block has been used, it cannot undo
+            {
+                UndoHappen?.Invoke(previousStates.Pop());
+            }
+            
         }
 
 
@@ -106,6 +110,18 @@ public class Grid : MonoBehaviour
 
         previousStates.Clear();
         previousStates.Push(currentState);
+    }
+
+    public void UndoButton()
+    {
+        if (previousStates.Count > 0)
+        {
+            if (previousStates.Peek().placedBlock != null)//if block has been used, it cannot undo
+            {
+                UndoHappen?.Invoke(previousStates.Pop());
+            }
+
+        }
     }
 
 
