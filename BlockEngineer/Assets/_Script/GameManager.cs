@@ -1,14 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
 
     public GameObject currentBlock;
+    public Image currentSelectUI;
     public GameObject normal;
     public GameObject spikes;
     public GameObject jumpBlock;
@@ -51,6 +54,12 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(currentLevel);
         }
+
+        if(currentBlock != null)
+        {
+            currentSelectUI.sprite = currentBlock.GetComponent<SpriteRenderer>().sprite;
+        }
+     
     }
     public void RespawnPoint(GameObject player)
     {
