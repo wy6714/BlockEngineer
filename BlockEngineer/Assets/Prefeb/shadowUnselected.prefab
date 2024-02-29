@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalBlock: {fileID: 5722826895276663736, guid: 682543cda82764ca993d006f56caa112, type: 3}
   spikesBlock: {fileID: 5717141227827753132, guid: 0004239196a994a008ca97c82ee3592b, type: 3}
+  playerObj: {fileID: 4999658214411405030, guid: cac81308f9fda4bb9b4fb43ccf57f04d, type: 3}
   hoverSprite: {fileID: 21300000, guid: a1294c6c307ab472c971d6d048df5209, type: 3}
   normalSprite: {fileID: 21300000, guid: 9a79ef5a7fb734291a830060a1854577, type: 3}
 --- !u!212 &658275072216533649

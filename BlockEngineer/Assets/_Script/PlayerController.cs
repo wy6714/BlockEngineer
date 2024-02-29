@@ -21,6 +21,15 @@ public class PlayerController : MonoBehaviour
     public static event Action<GameObject> playerDie;
     public static event Action<GameObject> getKeyHappens;
 
+    private void OnEnable()
+    { 
+        Grid.UndoHappen += undoPlayerPos;
+    }
+
+    private void OnDisable()
+    {
+        Grid.UndoHappen -= undoPlayerPos;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -112,5 +121,12 @@ public class PlayerController : MonoBehaviour
     public void reStart()
     {
         SceneManager.LoadScene("level1");
+    }
+
+    public void undoPlayerPos(Grid.GameState currentSate)
+    {
+        Debug.Log("current Pos is: " + transform.position);
+        Debug.Log("player will move to: : " + currentSate.playerPos);
+        transform.position = currentSate.playerPos;
     }
 }

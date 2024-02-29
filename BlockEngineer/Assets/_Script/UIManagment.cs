@@ -10,6 +10,8 @@ public class UIManagment : MonoBehaviour
     public TMP_Text lifeText;
     public static int fruitNum;
     public GameObject askExchangePanel;
+    public GameObject creditPanel;
+    public GameObject instructionPanel;
 
     private void OnEnable()
     {
@@ -18,6 +20,8 @@ public class UIManagment : MonoBehaviour
         Grid.updateFruit += UpdateFruitText;
         PlayerController.collectFruit += CollectFruitUI;
         GameManager.updateLife += lifeUI;
+        Grid.UndoHappen += undoFruit;
+        Grid.UndoHappen += undoBlock;
     }
 
     private void OnDisable()
@@ -25,6 +29,8 @@ public class UIManagment : MonoBehaviour
         Grid.updateFruit -= UpdateFruitText;
         PlayerController.collectFruit -= CollectFruitUI;
         GameManager.updateLife -= lifeUI;
+        Grid.UndoHappen -= undoFruit;
+        Grid.UndoHappen -= undoBlock;
     }
     // Start is called before the first frame update
     void Start()
@@ -39,7 +45,6 @@ public class UIManagment : MonoBehaviour
         {
             Block blockScript = GameManager.gm.currentBlock.GetComponent<Block>();
         }
-
     }
     public void UpdateFruitText(int cost)
     {
@@ -89,5 +94,17 @@ public class UIManagment : MonoBehaviour
         askExchangePanel.SetActive(true);
        
     }
+
+    public void undoFruit(Grid.GameState currentState)
+    {
+        fruitNum = fruitNum + currentState.fruitCost;
+        fruitNumText.text = ":" + fruitNum.ToString();
+    }
+
+    public void undoBlock(Grid.GameState currenState) => Destroy(currenState.placedBlock);
+
+    public void closeCreditPanel() => creditPanel.SetActive(false);
+    public void closeInstructionPaenl() => instructionPanel.SetActive(false);
+    
 
 }

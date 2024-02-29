@@ -17,11 +17,7 @@ public class menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Z))
-        {
-            creditPanel.SetActive(false);
-            instructionPanel.SetActive(false);
-        }
+        
     }
 
     public void showInstruction()
@@ -40,4 +36,7 @@ public class menu : MonoBehaviour
     {
         SceneManager.LoadScene("level1");
     }
+
+    public void closeCreditPanel() => creditPanel.SetActive(false);
+    public void closeInstructionPaenl() => instructionPanel.SetActive(false);
 }
