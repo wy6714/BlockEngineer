@@ -12,6 +12,8 @@ TagManager:
   - key
   - Flag
   - champion
+  - grid
+  - bat
   layers:
   - Default
   - TransparentFX

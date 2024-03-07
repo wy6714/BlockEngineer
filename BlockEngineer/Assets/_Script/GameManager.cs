@@ -15,8 +15,10 @@ public class GameManager : MonoBehaviour
     public GameObject normal;
     public GameObject spikes;
     public GameObject jumpBlock;
+    public GameObject cannonBlock;
     public Sprite pickaxeSprite;
     public string currentLevel;
+    [SerializeField] private GameObject gridObj;
 
     public static event Action<int> updateLife;
     public static event Action<bool> selectPickaxeHappen;
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         gm = this;
+        gridObj = GameObject.FindWithTag("grid");
     }
     private void OnEnable()
     {
@@ -62,6 +65,21 @@ public class GameManager : MonoBehaviour
         {
             currentSelectUI.sprite = currentBlock.GetComponent<SpriteRenderer>().sprite;
         }
+
+        if (selected == "pixkaxe")
+        {
+            pickaxeMode = true;
+        }
+        else
+        {
+            pickaxeMode = false;
+        }
+
+        //avoid cannon disappear, but grid is off
+        if(selected != "cannon")
+        {
+            gridObj.SetActive(true);
+        }
      
     }
     public void RespawnPoint(GameObject player)
@@ -72,14 +90,12 @@ public class GameManager : MonoBehaviour
         GameObject respawnPoint = GameObject.FindWithTag("Respawn");
         Instantiate(player, respawnPoint.transform.position, respawnPoint.transform.rotation);
         
-        
-
         //player.transform.position = respawnPoint.transform.position;
     }
 
     public void SpikesButton()
     {
-        pickaxeMode = false;
+        //pickaxeMode = false;
         currentBlock = spikes;
         selected = "spikes";
         Debug.Log(selected);
@@ -87,7 +103,7 @@ public class GameManager : MonoBehaviour
 
     public void NormalButton()
     {
-        pickaxeMode = false;
+        //pickaxeMode = false;
         currentBlock = normal;
         selected = "normal";
         Debug.Log(selected);
@@ -95,7 +111,7 @@ public class GameManager : MonoBehaviour
 
     public void JumpButton()
     {
-        pickaxeMode = false;
+        //pickaxeMode = false;
         currentBlock = jumpBlock;
         selected = "jump";
         Debug.Log(selected);
@@ -104,7 +120,15 @@ public class GameManager : MonoBehaviour
     public void PickaxeBlcokButton()
     {
         currentBlock = null;
+        selected = "pickaxe";
         currentSelectUI.sprite = pickaxeSprite;
         selectPickaxeHappen?.Invoke(true);
+    }
+
+    public void CannonBlockButton()
+    {
+        selected = "cannon";
+        currentBlock = cannonBlock;
+        Debug.Log(selected);
     }
 }
