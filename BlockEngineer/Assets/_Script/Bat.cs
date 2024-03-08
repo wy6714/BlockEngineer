@@ -12,6 +12,7 @@ public class Bat : MonoBehaviour
 
     private void OnEnable()
     {
+        playerTrans = GameObject.FindWithTag("Player").transform;
         Bullet.shootBatHappen += AttackBat;
     }
 
@@ -21,6 +22,7 @@ public class Bat : MonoBehaviour
     }
     private void Update()
     {
+        playerTrans = GameObject.FindWithTag("Player").transform;
         float disToPlayer = Vector2.Distance(transform.position, playerTrans.position);
         if (disToPlayer <= attackRange)
         {

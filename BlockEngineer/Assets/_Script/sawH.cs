@@ -21,6 +21,7 @@ public class sawH : MonoBehaviour
     {
         Movement();
     }
+ 
     public void Movement()
     {
         switch (currentPoint)
