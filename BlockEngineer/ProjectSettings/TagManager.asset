@@ -10,10 +10,9 @@ TagManager:
   - Fall
   - saw
   - key
-  - Flag
-  - champion
   - grid
   - bat
+  - canShootTerrain
   layers:
   - Default
   - TransparentFX

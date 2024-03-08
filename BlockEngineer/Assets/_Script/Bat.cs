@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bat : MonoBehaviour
 {
     [SerializeField] private bool cellOn = false;
-    [SerializeField] private float chasingSpeed = 2f;
+    [SerializeField] private float chasingSpeed = 1f;
     [SerializeField] private Transform playerTrans;
     [SerializeField] private int attackRange = 3;
     

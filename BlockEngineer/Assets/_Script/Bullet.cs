@@ -13,6 +13,12 @@ public class Bullet : MonoBehaviour
         {
             shootBatHappen?.Invoke(other.gameObject);
         }
+
+        if (other.CompareTag("canShootTerrain"))
+        {
+            Destroy(other.transform.parent.gameObject);
+            Destroy(gameObject);
+        }
     }
 
 }
