@@ -5,7 +5,7 @@ using UnityEngine;
 public class Grid : MonoBehaviour
 {
     public GameObject normalBlock;
-    public GameObject spikesBlock;
+    //public GameObject spikesBlock;
     //public GameObject playerObj;
 
     private GameObject placeBlock;

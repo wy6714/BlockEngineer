@@ -5117,7 +5117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 755059689}
   - component: {fileID: 755059691}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: woodR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5541,7 +5541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 817921259}
   - component: {fileID: 817921261}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: woodM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5784,7 +5784,7 @@ Transform:
   m_GameObject: {fileID: 846727065}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6182,7 +6182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &933219514
 Transform:
   m_ObjectHideFlags: 0
@@ -6305,8 +6305,7 @@ GameObject:
   - component: {fileID: 939599039}
   - component: {fileID: 939599041}
   - component: {fileID: 939599040}
-  - component: {fileID: 939599042}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6394,33 +6393,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.82, y: 0.3}
   m_EdgeRadius: 0
---- !u!50 &939599042
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 939599038}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!4 &942459933 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3827898539106800655, guid: b11176ae7832f452c865d206b91b18e8, type: 3}
@@ -7908,7 +7880,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -9505,7 +9477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1223298345
 Transform:
   m_ObjectHideFlags: 0
@@ -10919,7 +10891,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1402806340}
   - component: {fileID: 1402806342}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: woodL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15427,6 +15399,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1223298345}
     m_Modifications:
+    - target: {fileID: 1387732411503367765, guid: 6b4a4a8d0e80644b68f1a8b4327d35f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.65
+      objectReference: {fileID: 0}
     - target: {fileID: 3378965052241944301, guid: 6b4a4a8d0e80644b68f1a8b4327d35f0, type: 3}
       propertyPath: m_Name
       value: Chicken (1)
@@ -15810,87 +15786,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1990525448}
-  - component: {fileID: 1990525447}
-  - component: {fileID: 1990525446}
   m_Layer: 0
   m_Name: MovingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!50 &1990525446
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990525444}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &1990525447
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990525444}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.12}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3, y: 0.25}
-  m_EdgeRadius: 0
+  m_IsActive: 1
 --- !u!4 &1990525448
 Transform:
   m_ObjectHideFlags: 0
@@ -16798,7 +16700,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 861545835659838768, guid: cac81308f9fda4bb9b4fb43ccf57f04d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.2
+      value: -8.51
       objectReference: {fileID: 0}
     - target: {fileID: 861545835659838768, guid: cac81308f9fda4bb9b4fb43ccf57f04d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -17146,15 +17048,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5811416331199443625, guid: 8220bab24a2884848807ab896013a755, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.4776468
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 5811416331199443625, guid: 8220bab24a2884848807ab896013a755, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.693595
+      value: -0.78
       objectReference: {fileID: 0}
     - target: {fileID: 5811416331199443625, guid: 8220bab24a2884848807ab896013a755, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.099999
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5811416331199443625, guid: 8220bab24a2884848807ab896013a755, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17495,9 +17397,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1223298345}
     m_Modifications:
+    - target: {fileID: 1387732411503367765, guid: 6b4a4a8d0e80644b68f1a8b4327d35f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.59
+      objectReference: {fileID: 0}
     - target: {fileID: 3378965052241944301, guid: 6b4a4a8d0e80644b68f1a8b4327d35f0, type: 3}
       propertyPath: m_Name
       value: Chicken
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476188691180685355, guid: 6b4a4a8d0e80644b68f1a8b4327d35f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 5986716560094598992, guid: 6b4a4a8d0e80644b68f1a8b4327d35f0, type: 3}
       propertyPath: m_LocalPosition.x

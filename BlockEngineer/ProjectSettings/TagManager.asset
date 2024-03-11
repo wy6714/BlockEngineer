@@ -13,11 +13,13 @@ TagManager:
   - grid
   - bat
   - canShootTerrain
+  - Flag
+  - champion
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - platform
   - Water
   - UI
   - 
