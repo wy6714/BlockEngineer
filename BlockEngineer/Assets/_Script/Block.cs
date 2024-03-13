@@ -39,5 +39,10 @@ public class Block : MonoBehaviour
             }
         }
     }
+    void OnMouseDown()
+    {
+        //when place, click delete
+        Destroy(gameObject);
+    }
 
 }
