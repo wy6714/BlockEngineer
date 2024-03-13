@@ -8,8 +8,15 @@ public class Bat : MonoBehaviour
     [SerializeField] private float chasingSpeed = 1f;
     [SerializeField] private Transform playerTrans;
     [SerializeField] private int attackRange = 3;
-    
+    [SerializeField] private bool Freze;
+    private Animator anim;
 
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+        Freze = false;
+
+    }
     private void OnEnable()
     {
         playerTrans = GameObject.FindWithTag("Player").transform;
@@ -28,45 +35,37 @@ public class Bat : MonoBehaviour
         {
             cellOn = true;
             ChasingPlayer();
+            anim.SetBool("isFly", true);
         }
         else
         {
             cellOn = false;
+            anim.SetBool("isFly", false);
         }
+
+        Flip();
 
     }
 
     private void ChasingPlayer()
     {
-        Vector2 direction = (playerTrans.position - transform.position).normalized;
-        transform.Translate(direction * chasingSpeed * Time.deltaTime);
+        if (!Freze) // if canno hits bat, bat freze and play hit animation
+        {
+            Vector2 direction = (playerTrans.position - transform.position).normalized;
+            transform.Translate(direction * chasingSpeed * Time.deltaTime);
+        }
+        
     }
-    //private void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        cellOn = true;
-    //        isChasing = true;
-    //        Debug.Log("cell on is: " + cellOn);
-
-    //    }
-    //}
-
-    //private void OnTriggerExit2D(Collider2D other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        cellOn = false;
-    //        Debug.Log("cell on is: " + cellOn);
-    //    }
-    //}
+   
 
     public void AttackBat(GameObject batObj)
     {
         if (cellOn)
         {
             Debug.Log("current cell is: " + cellOn + ", bat is killed.");
-            Destroy(batObj);//gameobject is detect player collider, so cannot destory this.gameobjetc
+            Freze = true;
+            anim.SetTrigger("batDie");
+            Destroy(batObj,0.3f);//gameobject is detect player collider, so cannot destory this.gameobjetc
         }
         else
         {
@@ -78,5 +77,24 @@ public class Bat : MonoBehaviour
     {
         Gizmos.color = Color.blue ;
         Gizmos.DrawWireSphere(this.transform.position, attackRange);
+    }
+
+    private void Flip()
+    {
+        //player | bat
+        if (playerTrans.position.x < transform.position.x)
+        {
+            Vector3 localScale = transform.localScale;
+            localScale.x = Mathf.Abs(localScale.x); 
+            transform.localScale = localScale;
+        }
+        //Bat | player -> flip
+        else if (playerTrans.position.x > transform.position.x)
+        {
+            Vector3 localScale = transform.localScale;
+            localScale.x = -Mathf.Abs(localScale.x); 
+            transform.localScale = localScale;
+        }
+
     }
 }

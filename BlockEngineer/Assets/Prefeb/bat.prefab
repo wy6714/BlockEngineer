@@ -165,7 +165,7 @@ MonoBehaviour:
   cellOn: 0
   chasingSpeed: 1
   playerTrans: {fileID: 0}
-  attackRange: 3
+  attackRange: 5
 --- !u!95 &8662735847736625716
 Animator:
   serializedVersion: 5
