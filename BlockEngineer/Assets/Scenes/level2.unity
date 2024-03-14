@@ -3558,6 +3558,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4514931593670445204, guid: 10f73073c46fd423794f547ac4df5456, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4903,6 +4907,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f928c1f7c557402d808af476ce8a97d, type: 3}
+--- !u!82 &719181696 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7707504501980179151, guid: 10f73073c46fd423794f547ac4df5456, type: 3}
+  m_PrefabInstance: {fileID: 569821073}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &724106815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6926,6 +6935,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 569821079}
     - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
+      propertyPath: batDeadAudio
+      value: 
+      objectReference: {fileID: 569821077}
+    - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
       propertyPath: noMoneyAudio
       value: 
       objectReference: {fileID: 569821075}
@@ -6941,6 +6954,14 @@ PrefabInstance:
       propertyPath: placeBlockAudio
       value: 
       objectReference: {fileID: 569821074}
+    - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
+      propertyPath: birdMovementAudio
+      value: 
+      objectReference: {fileID: 1226839228}
+    - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
+      propertyPath: failedAttackBatAudio
+      value: 
+      objectReference: {fileID: 719181696}
     - target: {fileID: 4387870808988406063, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -9439,6 +9460,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9201174955935517070, guid: 8366260232f6f4cdc84a380ebd4699bd, type: 3}
   m_PrefabInstance: {fileID: 1225558930}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1226839228 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4514931593670445204, guid: 10f73073c46fd423794f547ac4df5456, type: 3}
+  m_PrefabInstance: {fileID: 569821073}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1240969192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11847,6 +11873,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: JumpButton
       objectReference: {fileID: 0}
+    - target: {fileID: 2859985683422398132, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1024287161}
+    - target: {fileID: 2859985683422398132, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: exchangeLifeFruit
+      objectReference: {fileID: 0}
     - target: {fileID: 3310174488131376704, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -11858,6 +11892,14 @@ PrefabInstance:
     - target: {fileID: 4116529259142491827, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
       propertyPath: m_Name
       value: Canvas(level2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589897812500168261, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1024287161}
+    - target: {fileID: 4589897812500168261, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: closeaskExchangePanel
       objectReference: {fileID: 0}
     - target: {fileID: 4695686613736380845, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

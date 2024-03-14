@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,10 @@ public class Bat : MonoBehaviour
     [SerializeField] private int attackRange = 3;
     [SerializeField] private bool Freze;
     private Animator anim;
+
+    public static event Action<GameObject> failedAttackBatHappens;
+    public static event Action<GameObject> batFlyHappens;
+    public static event Action<GameObject> batDeadHappens;
 
     private void Start()
     {
@@ -36,9 +41,11 @@ public class Bat : MonoBehaviour
             cellOn = true;
             ChasingPlayer();
             anim.SetBool("isFly", true);
+            
         }
         else
         {
+            batFlyHappens?.Invoke(gameObject);
             cellOn = false;
             anim.SetBool("isFly", false);
         }
@@ -51,6 +58,7 @@ public class Bat : MonoBehaviour
     {
         if (!Freze) // if canno hits bat, bat freze and play hit animation
         {
+            
             Vector2 direction = (playerTrans.position - transform.position).normalized;
             transform.Translate(direction * chasingSpeed * Time.deltaTime);
         }
@@ -65,10 +73,12 @@ public class Bat : MonoBehaviour
             Debug.Log("current cell is: " + cellOn + ", bat is killed.");
             Freze = true;
             anim.SetTrigger("batDie");
+            batDeadHappens?.Invoke(gameObject);
             Destroy(batObj,0.3f);//gameobject is detect player collider, so cannot destory this.gameobjetc
         }
         else
         {
+            failedAttackBatHappens?.Invoke(gameObject);
             Debug.Log("bullet shoot bat, but bat is cell off.");
         }
     }

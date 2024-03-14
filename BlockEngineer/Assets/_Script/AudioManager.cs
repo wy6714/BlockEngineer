@@ -13,6 +13,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource getKeyAudio;
     [SerializeField] private AudioSource getChestAudio;
 
+    //bat
+    [SerializeField] private AudioSource failedAttackBatAudio;
+    [SerializeField] private AudioSource birdMovementAudio;
+
     private void OnEnable()
     {
         JumpBlock.JumpHappened += jumpAudio;
@@ -28,6 +32,11 @@ public class AudioManager : MonoBehaviour
         Whale.WhaleDieHappen += playWhaleDieAudio;
         PlayerController.getKeyHappens += playeGetKeyAudio;
         Chest.getChest += playGetChestAudio;
+
+        //bat
+        Bat.failedAttackBatHappens += playFailedAttackBatAudio;
+        Bat.batFlyHappens += playBatFlyAudio;
+        Bat.batDeadHappens += playBatDeadAudio;
 
 
     }
@@ -48,6 +57,10 @@ public class AudioManager : MonoBehaviour
         PlayerController.getKeyHappens -= playeGetKeyAudio;
         Chest.getChest -= playGetChestAudio;
 
+        //bat
+        Bat.failedAttackBatHappens -= playFailedAttackBatAudio;
+        Bat.batFlyHappens -= playBatFlyAudio;
+        Bat.batDeadHappens -= playBatDeadAudio;
 
 
     }
@@ -76,5 +89,10 @@ public class AudioManager : MonoBehaviour
     public void playerErrorAudio(GameObject obj) => errorAudio.Play();
     public void playeGetKeyAudio(GameObject obj) => getKeyAudio.Play();
     public void playGetChestAudio(GameObject obj) => getChestAudio.Play();
+
+    //bat
+    public void playFailedAttackBatAudio(GameObject obj) => failedAttackBatAudio.Play();
+    public void playBatFlyAudio(GameObject obj) => birdMovementAudio.Play();
+    public void playBatDeadAudio(GameObject obj) => hitAudio.Play();
 
 }
