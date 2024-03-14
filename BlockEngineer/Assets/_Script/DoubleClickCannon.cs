@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,9 @@ public class DoubleClickCannon : MonoBehaviour
     [SerializeField] private Transform shootTrans;
     //[SerializeField] private bool CannonOn;
 
+    private Animator anim;
+    public static event Action<GameObject> fireEffecrHappens;
+
     //-----------------------------------------
     private void Start()
     {
@@ -19,6 +23,8 @@ public class DoubleClickCannon : MonoBehaviour
         //player cannot place other block unless they delete cannon
         gridObj = GameObject.FindWithTag("grid");
         gridObj.SetActive(false);
+
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -44,6 +50,8 @@ public class DoubleClickCannon : MonoBehaviour
 
         if(mouseToCannonDis > 0.5f)//avoid shoot when click to delete cannon
         {
+            anim.SetTrigger("CannonFire");
+            fireEffecrHappens?.Invoke(gameObject);
             GameObject bullet = Instantiate(bulletObj, shootTrans.transform.position, Quaternion.identity);
             Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
             bulletRb.AddForce(direction * 3f, ForceMode2D.Impulse);
