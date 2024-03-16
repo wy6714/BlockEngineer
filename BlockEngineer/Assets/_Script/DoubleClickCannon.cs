@@ -15,6 +15,8 @@ public class DoubleClickCannon : MonoBehaviour
 
     private Animator anim;
     public static event Action<GameObject> fireEffecrHappens;
+    public static event Action<GameObject> cannonShootHappens;
+    public static event Action<bool> cannonOnHappens;
 
     //-----------------------------------------
     private void Start()
@@ -25,6 +27,8 @@ public class DoubleClickCannon : MonoBehaviour
         gridObj.SetActive(false);
 
         anim = GetComponent<Animator>();
+
+        cannonOnHappens?.Invoke(true);
     }
 
     private void Update()
@@ -51,7 +55,10 @@ public class DoubleClickCannon : MonoBehaviour
         if(mouseToCannonDis > 0.5f)//avoid shoot when click to delete cannon
         {
             anim.SetTrigger("CannonFire");
-            fireEffecrHappens?.Invoke(gameObject);
+            fireEffecrHappens?.Invoke(gameObject);//fire effect anim
+            cannonShootHappens?.Invoke(gameObject);
+
+            //shoot bullet
             GameObject bullet = Instantiate(bulletObj, shootTrans.transform.position, Quaternion.identity);
             Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
             bulletRb.AddForce(direction * 3f, ForceMode2D.Impulse);
@@ -63,6 +70,7 @@ public class DoubleClickCannon : MonoBehaviour
 
     void OnMouseDown()
     {
+        cannonOnHappens?.Invoke(false);
         gridObj.SetActive(true);
         Destroy(transform.parent.gameObject);
     }

@@ -17,6 +17,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource failedAttackBatAudio;
     [SerializeField] private AudioSource birdMovementAudio;
 
+    //cannon
+    [SerializeField] private AudioSource cannonShootAudio;
+    [SerializeField] private AudioSource cannonOnFireAudio;
+    [SerializeField] private AudioSource breakableBlockCrashAudio;
+
+
     private void OnEnable()
     {
         JumpBlock.JumpHappened += jumpAudio;
@@ -37,6 +43,14 @@ public class AudioManager : MonoBehaviour
         Bat.failedAttackBatHappens += playFailedAttackBatAudio;
         Bat.batFlyHappens += playBatFlyAudio;
         Bat.batDeadHappens += playBatDeadAudio;
+
+        //cannon
+        DoubleClickCannon.cannonShootHappens += playCannonShootAudio;
+        DoubleClickCannon.cannonOnHappens += playCannonOnAudio;
+
+        //bullet
+        //block crashed by cannon bullet
+        Bullet.shootBreakableBlock += playBlockCrashedByCannonAudio;
 
 
     }
@@ -61,6 +75,14 @@ public class AudioManager : MonoBehaviour
         Bat.failedAttackBatHappens -= playFailedAttackBatAudio;
         Bat.batFlyHappens -= playBatFlyAudio;
         Bat.batDeadHappens -= playBatDeadAudio;
+
+        //cannon
+        DoubleClickCannon.cannonShootHappens -= playCannonShootAudio;
+        DoubleClickCannon.cannonOnHappens -= playCannonOnAudio;
+
+        //bullet
+        //block crashed by cannon
+        Bullet.shootBreakableBlock -= playBlockCrashedByCannonAudio;
 
 
     }
@@ -94,5 +116,17 @@ public class AudioManager : MonoBehaviour
     public void playFailedAttackBatAudio(GameObject obj) => failedAttackBatAudio.Play();
     public void playBatFlyAudio(GameObject obj) => birdMovementAudio.Play();
     public void playBatDeadAudio(GameObject obj) => hitAudio.Play();
+
+    //cannon
+    public void playCannonShootAudio(GameObject obj) => cannonShootAudio.Play();
+    public void playCannonOnAudio(bool isOn)
+    {
+        if (isOn) { cannonOnFireAudio.Play(); }
+        else { cannonOnFireAudio.Pause(); }
+
+    }
+
+    //bullet
+    public void playBlockCrashedByCannonAudio(GameObject obj) => breakableBlockCrashAudio.Play();
 
 }
