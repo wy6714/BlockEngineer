@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
 
     public bool pickaxeMode = false;
 
+    //cannon
+    public int cannonBulletNum;
+
 
     void Awake()
     {
@@ -38,11 +41,17 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         PlayerController.playerDie += RespawnPoint;
+        CollectibleBullet.collectBulletHappens += addBulletsNum;
+        DoubleClickCannon.bulletCostHappens += minusBulletNum;
+        
+            
     }
 
     private void OnDisable()
     {
         PlayerController.playerDie -= RespawnPoint;
+        CollectibleBullet.collectBulletHappens -= addBulletsNum;
+        DoubleClickCannon.bulletCostHappens -= minusBulletNum;
     }
     // Start is called before the first frame update
     void Start()
@@ -85,7 +94,7 @@ public class GameManager : MonoBehaviour
     public void RespawnPoint(GameObject player)
     {
        
-        life = life - 1;
+        life -=1;
         updateLife?.Invoke(life);
         GameObject respawnPoint = GameObject.FindWithTag("Respawn");
         Instantiate(player, respawnPoint.transform.position, respawnPoint.transform.rotation);
@@ -130,5 +139,16 @@ public class GameManager : MonoBehaviour
         selected = "cannon";
         currentBlock = cannonBlock;
         Debug.Log(selected);
+    }
+
+    private void addBulletsNum (GameObject obj)
+    {
+        cannonBulletNum += 1;
+        
+    }
+
+    private void minusBulletNum(GameObject obj)
+    {
+        cannonBulletNum -= 1;
     }
 }

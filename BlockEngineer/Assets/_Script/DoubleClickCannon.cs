@@ -11,13 +11,15 @@ public class DoubleClickCannon : MonoBehaviour
 
     [SerializeField] private GameObject bulletObj;
     [SerializeField] private Transform shootTrans;
+    [SerializeField] private int bulletsNum;
     //[SerializeField] private bool CannonOn;
 
     private Animator anim;
     public static event Action<GameObject> fireEffecrHappens;
     public static event Action<GameObject> cannonShootHappens;
     public static event Action<bool> cannonOnHappens;
-
+    public static event Action<GameObject> bulletNotEnoughHappens;
+    public static event Action<GameObject> bulletCostHappens;
     //-----------------------------------------
     private void Start()
     {
@@ -36,9 +38,20 @@ public class DoubleClickCannon : MonoBehaviour
         //get mouse position
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        ControlCannon();
-
-        if (Input.GetMouseButtonDown(0)) { shoot(); }
+        if(GameManager.gm.cannonBulletNum > 0)
+        {
+            ControlCannon();
+            if (Input.GetMouseButtonDown(0)) { shoot(); }
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                bulletNotEnoughHappens?.Invoke(gameObject);//audio play
+             
+            }
+        }
+  
     }
 
     private void ControlCannon()
@@ -64,6 +77,11 @@ public class DoubleClickCannon : MonoBehaviour
             bulletRb.AddForce(direction * 3f, ForceMode2D.Impulse);
             Destroy(bullet, 5f);
             Debug.Log("cannon shoot bullet");
+
+            //cost bullet num
+            bulletCostHappens?.Invoke(gameObject);
+            Debug.Log("shoot bullet, bullet-1, current bullet is:" +
+                GameManager.gm.cannonBulletNum);
         }
     }
     

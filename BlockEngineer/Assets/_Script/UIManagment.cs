@@ -8,20 +8,29 @@ public class UIManagment : MonoBehaviour
 {
     public TMP_Text fruitNumText;
     public TMP_Text lifeText;
+    
     public static int fruitNum;
     public GameObject askExchangePanel;
     public GameObject creditPanel;
     public GameObject instructionPanel;
 
+    //bullet
+    public TMP_Text bulletNumText;
+
     private void OnEnable()
     {
         fruitNum = 20;
-        fruitNumText.text = ":" + fruitNum.ToString();
+        fruitNumText.text = fruitNum.ToString();
+        bulletNumText.text = 0.ToString();
         Grid.updateFruit += UpdateFruitText;
         PlayerController.collectFruit += CollectFruitUI;
         GameManager.updateLife += lifeUI;
         Grid.UndoHappen += undoFruit;
         Grid.UndoHappen += undoBlock;
+
+        CollectibleBullet.collectBulletHappens += addBulletUI;
+        DoubleClickCannon.bulletNotEnoughHappens += bulletNotEnoughUI;
+        DoubleClickCannon.bulletCostHappens += minusBulletUI;
     }
 
     private void OnDisable()
@@ -31,6 +40,10 @@ public class UIManagment : MonoBehaviour
         GameManager.updateLife -= lifeUI;
         Grid.UndoHappen -= undoFruit;
         Grid.UndoHappen -= undoBlock;
+
+        CollectibleBullet.collectBulletHappens -= addBulletUI;
+        DoubleClickCannon.bulletNotEnoughHappens -= bulletNotEnoughUI;
+        DoubleClickCannon.bulletCostHappens -= minusBulletUI;
     }
     // Start is called before the first frame update
     void Start()
@@ -46,12 +59,27 @@ public class UIManagment : MonoBehaviour
             Block blockScript = GameManager.gm.currentBlock.GetComponent<Block>();
         }
     }
+    public void addBulletUI(GameObject obj)
+    {
+        bulletNumText.text = GameManager.gm.cannonBulletNum.ToString();
+    }
+
+    public void minusBulletUI(GameObject obj)
+    {
+        bulletNumText.text = GameManager.gm.cannonBulletNum.ToString();
+    }
+
+    public void bulletNotEnoughUI(GameObject obj)
+    {
+        bulletNumText.text = "No Bullet! Collect, or Click [Buy Bullet] Button on the right";
+    }
+
     public void UpdateFruitText(int cost)
     {
         if (cost > 0)
         {
             fruitNum -= cost;
-            fruitNumText.text = ":" + fruitNum.ToString();
+            fruitNumText.text = fruitNum.ToString();
         }
         else
         {
@@ -63,12 +91,13 @@ public class UIManagment : MonoBehaviour
     public void CollectFruitUI(GameObject fruitObj)
     {
         fruitNum += 1;
-        fruitNumText.text = ":" + fruitNum.ToString();
+        fruitNumText.text = fruitNum.ToString();
     }
 
     public void lifeUI(int life)
     {
-        lifeText.text = ":" + life.ToString(); 
+        Debug.Log("update life UI");
+        lifeText.text = GameManager.gm.life.ToString(); 
     }
 
     public void exchangeLifeFruit()
@@ -76,8 +105,8 @@ public class UIManagment : MonoBehaviour
         
         GameManager.gm.life = GameManager.gm.life - 1;
         fruitNum = fruitNum + 10;
-        lifeText.text = ":" + GameManager.gm.life.ToString();
-        fruitNumText.text = ":" + fruitNum.ToString();
+        lifeText.text = GameManager.gm.life.ToString();
+        fruitNumText.text = fruitNum.ToString();
         askExchangePanel.SetActive(false);
        
        
@@ -98,7 +127,7 @@ public class UIManagment : MonoBehaviour
     public void undoFruit(Grid.GameState currentState)
     {
         fruitNum = fruitNum + currentState.fruitCost;
-        fruitNumText.text = ":" + fruitNum.ToString();
+        fruitNumText.text = fruitNum.ToString();
     }
 
     public void undoBlock(Grid.GameState currenState) => Destroy(currenState.placedBlock);

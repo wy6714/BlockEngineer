@@ -22,6 +22,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource cannonOnFireAudio;
     [SerializeField] private AudioSource breakableBlockCrashAudio;
 
+    //bullet
+    [SerializeField] private AudioSource collectBulletAudio;
+
 
     private void OnEnable()
     {
@@ -47,10 +50,16 @@ public class AudioManager : MonoBehaviour
         //cannon
         DoubleClickCannon.cannonShootHappens += playCannonShootAudio;
         DoubleClickCannon.cannonOnHappens += playCannonOnAudio;
+        DoubleClickCannon.bulletNotEnoughHappens += playNoBulletAudio;
 
         //bullet
         //block crashed by cannon bullet
         Bullet.shootBreakableBlock += playBlockCrashedByCannonAudio;
+
+        //collectible Bullet
+        CollectibleBullet.collectBulletHappens += playCollectBulletAudio;
+        
+
 
 
     }
@@ -84,7 +93,9 @@ public class AudioManager : MonoBehaviour
         //block crashed by cannon
         Bullet.shootBreakableBlock -= playBlockCrashedByCannonAudio;
 
-
+        //collectible bullet
+        CollectibleBullet.collectBulletHappens -= playCollectBulletAudio;
+        DoubleClickCannon.bulletNotEnoughHappens -= playNoBulletAudio;
     }
     // Start is called before the first frame update
     void Start()
@@ -128,5 +139,9 @@ public class AudioManager : MonoBehaviour
 
     //bullet
     public void playBlockCrashedByCannonAudio(GameObject obj) => breakableBlockCrashAudio.Play();
+    public void playNoBulletAudio(GameObject obj) => errorAudio.Play();
+
+    //collectible bullet
+    public void playCollectBulletAudio(GameObject obj) => collectBulletAudio.Play();
 
 }
