@@ -4140,7 +4140,6 @@ MonoBehaviour:
   getFruitAudio: {fileID: 58939475}
   hitAudio: {fileID: 1182435479}
   JumpAudio: {fileID: 1803226261}
-  noMoneyAudio: {fileID: 684251880}
   placeBlockAudio: {fileID: 1029643376}
   getKeyAudio: {fileID: 1844618536}
   getChestAudio: {fileID: 828348520}
@@ -18606,6 +18605,7 @@ MonoBehaviour:
   askExchangePanel: {fileID: 1242324085}
   creditPanel: {fileID: 3795113722980882967}
   instructionPanel: {fileID: 240636921}
+  buyBulletWindow: {fileID: 6608011445595405558, guid: 223ac2861071645dd9c747af4f917fe4, type: 3}
   bulletNumText: {fileID: 1726745862}
 --- !u!4 &1434863943
 Transform:

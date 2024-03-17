@@ -8,7 +8,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource getFruitAudio;
     [SerializeField] private AudioSource hitAudio;
     [SerializeField] private AudioSource JumpAudio;
-    [SerializeField] private AudioSource noMoneyAudio;
     [SerializeField] private AudioSource placeBlockAudio;
     [SerializeField] private AudioSource getKeyAudio;
     [SerializeField] private AudioSource getChestAudio;
@@ -58,6 +57,9 @@ public class AudioManager : MonoBehaviour
 
         //collectible Bullet
         CollectibleBullet.collectBulletHappens += playCollectBulletAudio;
+
+        //UI
+        UIManagment.NoMoneyUIAudioHappens += playerErrorAudio;
         
 
 
@@ -96,6 +98,9 @@ public class AudioManager : MonoBehaviour
         //collectible bullet
         CollectibleBullet.collectBulletHappens -= playCollectBulletAudio;
         DoubleClickCannon.bulletNotEnoughHappens -= playNoBulletAudio;
+
+        //UI
+        UIManagment.NoMoneyUIAudioHappens -= playerErrorAudio;
     }
     // Start is called before the first frame update
     void Start()

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 
 public class UIManagment : MonoBehaviour
@@ -13,9 +14,12 @@ public class UIManagment : MonoBehaviour
     public GameObject askExchangePanel;
     public GameObject creditPanel;
     public GameObject instructionPanel;
+    public GameObject buyBulletWindow;
 
     //bullet
     public TMP_Text bulletNumText;
+
+    public static event Action<GameObject> NoMoneyUIAudioHappens;
 
     private void OnEnable()
     {
@@ -49,6 +53,7 @@ public class UIManagment : MonoBehaviour
     void Start()
     {
         askExchangePanel.SetActive(false);
+        buyBulletWindow.SetActive(false);
     }
 
     // Update is called once per frame
@@ -134,5 +139,30 @@ public class UIManagment : MonoBehaviour
 
     public void closeCreditPanel() => creditPanel.SetActive(false);
     public void closeInstructionPaenl() => instructionPanel.SetActive(false);
+
+    public void openBuyBulletWindow() => buyBulletWindow.SetActive(true);
+
+    public void buyBullet()
+    {
+        if(fruitNum >= 10)
+        {
+            GameManager.gm.cannonBulletNum += 1;
+            bulletNumText.text = GameManager.gm.cannonBulletNum.ToString();
+            fruitNum -= 10;
+            fruitNumText.text = fruitNum.ToString();
+            buyBulletWindow.SetActive(false);
+
+        }
+        else
+        {
+            NoMoneyUIAudioHappens?.Invoke(gameObject);
+        }
+        
+    }
+
+    public void closeBuyBulletWindow()
+    {
+        buyBulletWindow.SetActive(false);
+    }
     
 }
