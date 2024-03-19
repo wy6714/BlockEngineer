@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Grid : MonoBehaviour
 {
@@ -60,6 +61,16 @@ public class Grid : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
+            //if there is UI element, won't trigger game interativities
+            if (EventSystem.current.IsPointerOverGameObject())
+
+            {
+
+                return; // Do nothing, the click was on UI
+
+            }
+
+
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
             {
                 Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, 10f);
@@ -90,12 +101,26 @@ public class Grid : MonoBehaviour
 
     private void OnMouseOver()//mouse hover -> hoverSprite
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+
+        {
+
+            return; // Do nothing, the click was on UI
+
+        }
         spriteRenderer.sprite = hoverSprite;
     }
 
 
     private void OnMouseExit()//mouse exit -> back normal
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+
+        {
+
+            return; // Do nothing, the click was on UI
+
+        }
         spriteRenderer.sprite = normalSprite;
     }
 

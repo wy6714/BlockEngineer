@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class DoubleClickCannon : MonoBehaviour
 {
@@ -41,7 +42,22 @@ public class DoubleClickCannon : MonoBehaviour
         if(GameManager.gm.cannonBulletNum > 0)
         {
             ControlCannon();
-            if (Input.GetMouseButtonDown(0)) { shoot(); }
+            if (Input.GetMouseButtonDown(0))
+            {
+
+                if (EventSystem.current.IsPointerOverGameObject())
+
+                {
+
+                    return; // Do nothing, the click was on UI
+
+                }
+                else
+                {
+                    shoot();
+                }
+                
+            }
         }
         else
         {

@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 7872707242057076382}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: cannon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -269,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletObj: {fileID: 4348544099521388658, guid: 7b3c3441839324170a9d2b208ce39919, type: 3}
   shootTrans: {fileID: 5676685468797064324}
+  bulletsNum: 0
 --- !u!95 &7872707242057076382
 Animator:
   serializedVersion: 5

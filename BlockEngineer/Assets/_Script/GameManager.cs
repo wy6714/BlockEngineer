@@ -88,6 +88,13 @@ public class GameManager : MonoBehaviour
         if(selected != "cannon")
         {
             gridObj.SetActive(true);
+            //destory cannon
+            GameObject cannonObj = GameObject.FindWithTag("cannon");
+
+            if (cannonObj != null)
+            {
+                Destroy(cannonObj.transform.parent.gameObject);
+            }
         }
      
     }

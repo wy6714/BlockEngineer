@@ -11,6 +11,7 @@ public class Bat : MonoBehaviour
     [SerializeField] private int attackRange = 3;
     [SerializeField] private bool Freze;
     private Animator anim;
+    private Vector3 batOriginPos;
 
     public static event Action<GameObject> failedAttackBatHappens;
     public static event Action<GameObject> batFlyHappens;
@@ -20,16 +21,19 @@ public class Bat : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         Freze = false;
+        batOriginPos = gameObject.transform.position;
+        playerTrans = GameObject.FindWithTag("Player").transform;
 
     }
     private void OnEnable()
     {
-        playerTrans = GameObject.FindWithTag("Player").transform;
+        PlayerController.playerDie += resetBatPos;
         Bullet.shootBatHappen += AttackBat;
     }
 
     private void OnDisable()
     {
+        PlayerController.playerDie -= resetBatPos;
         Bullet.shootBatHappen -= AttackBat;
     }
     private void Update()
@@ -51,6 +55,7 @@ public class Bat : MonoBehaviour
         }
 
         Flip();
+        Debug.Log(batOriginPos);
 
     }
 
@@ -106,5 +111,12 @@ public class Bat : MonoBehaviour
             transform.localScale = localScale;
         }
 
+    }
+
+    private void resetBatPos(GameObject Playerobj)
+    {
+        Debug.Log("invoke bat back to its original position");
+        transform.position = batOriginPos;
+        
     }
 }

@@ -13,8 +13,7 @@ TagManager:
   - grid
   - bat
   - canShootTerrain
-  - Flag
-  - champion
+  - cannon
   layers:
   - Default
   - TransparentFX

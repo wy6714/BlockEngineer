@@ -111,6 +111,14 @@ public class PlayerController : MonoBehaviour
             getKeyHappens?.Invoke(other.gameObject);
 
         }
+
+        if (other.CompareTag("bat"))
+        {
+            Debug.Log("bat killed player");
+            anim.SetTrigger("playerDie");
+            playerDie?.Invoke(gameObject);
+            Destroy(gameObject, 0.2f);
+        }
     }
 
     private void createDust()

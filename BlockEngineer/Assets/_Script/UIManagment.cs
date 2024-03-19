@@ -151,7 +151,6 @@ public class UIManagment : MonoBehaviour
             fruitNum -= 10;
             fruitNumText.text = fruitNum.ToString();
             buyBulletWindow.SetActive(false);
-
         }
         else
         {
