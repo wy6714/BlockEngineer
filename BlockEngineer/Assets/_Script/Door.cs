@@ -44,10 +44,11 @@ public class Door : MonoBehaviour
                 other.gameObject.transform.position = targetTrans.position;
                 Camera.main.transform.position = cameraTargetTrans.position;
 
-                updateCurrenlevelNum?.Invoke(cureentLevelNum);
+                
 
                 nextLevel.SetActive(true);
                 currentLevel.SetActive(false);
+                updateCurrenlevelNum?.Invoke(cureentLevelNum);
             }
         }
     }

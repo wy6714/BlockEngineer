@@ -112,6 +112,10 @@ public class AudioManager : MonoBehaviour
     void Update()
     {
 
+        if (GameManager.gm.selected != "cannon")
+        {
+            cannonOnFireAudio.Pause();
+        }
     }
 
     public void jumpAudio(GameObject obj) => JumpAudio.Play();

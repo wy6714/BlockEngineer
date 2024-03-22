@@ -10,6 +10,7 @@ public class Bat : MonoBehaviour
     [SerializeField] private Transform playerTrans;
     [SerializeField] private int attackRange = 3;
     [SerializeField] private bool Freze;
+    //public bool Freze;
     private Animator anim;
     private Vector3 batOriginPos;
 
@@ -55,7 +56,7 @@ public class Bat : MonoBehaviour
         }
 
         Flip();
-        Debug.Log(batOriginPos);
+        //Debug.Log(batOriginPos);
 
     }
 
@@ -76,9 +77,10 @@ public class Bat : MonoBehaviour
         if (cellOn)
         {
             Debug.Log("current cell is: " + cellOn + ", bat is killed.");
-            Freze = true;
-            anim.SetTrigger("batDie");
-            batDeadHappens?.Invoke(gameObject);
+            batObj.GetComponent<Bat>().Freze = true;
+            Animator batObjAnim = batObj.GetComponent<Animator>();
+            batObjAnim.SetTrigger("batDie");
+            batDeadHappens?.Invoke(batObj);
             Destroy(batObj,0.3f);//gameobject is detect player collider, so cannot destory this.gameobjetc
         }
         else

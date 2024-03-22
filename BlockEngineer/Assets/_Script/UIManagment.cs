@@ -35,6 +35,9 @@ public class UIManagment : MonoBehaviour
         CollectibleBullet.collectBulletHappens += addBulletUI;
         DoubleClickCannon.bulletNotEnoughHappens += bulletNotEnoughUI;
         DoubleClickCannon.bulletCostHappens += minusBulletUI;
+
+        //tester
+        TestHelper.addFruitHappens += addFruit;
     }
 
     private void OnDisable()
@@ -48,6 +51,9 @@ public class UIManagment : MonoBehaviour
         CollectibleBullet.collectBulletHappens -= addBulletUI;
         DoubleClickCannon.bulletNotEnoughHappens -= bulletNotEnoughUI;
         DoubleClickCannon.bulletCostHappens -= minusBulletUI;
+
+        //tester
+        TestHelper.addFruitHappens -= addFruit;
     }
     // Start is called before the first frame update
     void Start()
@@ -162,6 +168,12 @@ public class UIManagment : MonoBehaviour
     public void closeBuyBulletWindow()
     {
         buyBulletWindow.SetActive(false);
+    }
+
+    public void addFruit(int addNum)
+    {
+        fruitNum += addNum;
+        fruitNumText.text = fruitNum.ToString();
     }
     
 }

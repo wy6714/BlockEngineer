@@ -63,9 +63,22 @@ public class DoubleClickCannon : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                bulletNotEnoughHappens?.Invoke(gameObject);//audio play
-             
+
+
+                if (EventSystem.current.IsPointerOverGameObject())
+
+                {
+
+                    return; // Do nothing, the click was on UI
+
+                }
+                else
+                {
+                    bulletNotEnoughHappens?.Invoke(gameObject);//audio play
+                }
+
             }
+            
         }
   
     }
@@ -93,6 +106,9 @@ public class DoubleClickCannon : MonoBehaviour
             bulletRb.AddForce(direction * 3f, ForceMode2D.Impulse);
             Destroy(bullet, 5f);
             Debug.Log("cannon shoot bullet");
+
+            //if used the canon, clear gamestate data, so it won't undo
+            Grid.previousStates.Clear();
 
             //cost bullet num
             bulletCostHappens?.Invoke(gameObject);

@@ -18,14 +18,14 @@ public class GameManager : MonoBehaviour
     public GameObject cannonBlock;
     public Sprite pickaxeSprite;
     public string currentLevel;
-    [SerializeField] private GameObject gridObj;
+    public GameObject gridObj;
 
     public static event Action<int> updateLife;
     public static event Action<bool> selectPickaxeHappen;
 
     public int life;
 
-    private string selected;
+    public string selected;
 
     public bool pickaxeMode = false;
 
@@ -43,8 +43,8 @@ public class GameManager : MonoBehaviour
         PlayerController.playerDie += RespawnPoint;
         CollectibleBullet.collectBulletHappens += addBulletsNum;
         DoubleClickCannon.bulletCostHappens += minusBulletNum;
-        
-            
+
+        Door.updateCurrenlevelNum += updateGridObj;
     }
 
     private void OnDisable()
@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
         PlayerController.playerDie -= RespawnPoint;
         CollectibleBullet.collectBulletHappens -= addBulletsNum;
         DoubleClickCannon.bulletCostHappens -= minusBulletNum;
+
+        Door.updateCurrenlevelNum -= updateGridObj;
     }
     // Start is called before the first frame update
     void Start()
@@ -85,9 +87,14 @@ public class GameManager : MonoBehaviour
         }
 
         //avoid cannon disappear, but grid is off
+        //if(selected == "normal" || selected == "jump" || selected == "spikes")
         if(selected != "cannon")
         {
+            
             gridObj.SetActive(true);
+            //Debug.Log("grid is not null, and set actived");
+            
+            
             //destory cannon
             GameObject cannonObj = GameObject.FindWithTag("cannon");
 
@@ -96,7 +103,7 @@ public class GameManager : MonoBehaviour
                 Destroy(cannonObj.transform.parent.gameObject);
             }
         }
-     
+
     }
     public void RespawnPoint(GameObject player)
     {
@@ -115,6 +122,8 @@ public class GameManager : MonoBehaviour
         currentBlock = spikes;
         selected = "spikes";
         Debug.Log(selected);
+
+        //gridObj.SetActive(true);
     }
 
     public void NormalButton()
@@ -123,6 +132,8 @@ public class GameManager : MonoBehaviour
         currentBlock = normal;
         selected = "normal";
         Debug.Log(selected);
+
+        gridObj.SetActive(true);
     }
 
     public void JumpButton()
@@ -131,6 +142,8 @@ public class GameManager : MonoBehaviour
         currentBlock = jumpBlock;
         selected = "jump";
         Debug.Log(selected);
+
+        //gridObj.SetActive(true);
     }
 
     public void PickaxeBlcokButton()
@@ -157,5 +170,10 @@ public class GameManager : MonoBehaviour
     private void minusBulletNum(GameObject obj)
     {
         cannonBulletNum -= 1;
+    }
+
+    public void updateGridObj(int levelNum)
+    {
+        gridObj = GameObject.FindWithTag("grid"); 
     }
 }
