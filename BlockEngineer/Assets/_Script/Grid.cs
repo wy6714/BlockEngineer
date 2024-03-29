@@ -45,13 +45,13 @@ public class Grid : MonoBehaviour
         }
 
         //undo keycode
-        if (Input.GetKeyUp(KeyCode.Z) && previousStates.Count>0)
+        if (Input.GetKeyUp(KeyCode.Z) && previousStates.Count > 0)
         {
-            if(previousStates.Peek().placedBlock != null)//if block has been used, it cannot undo
+            if (previousStates.Peek().placedBlock != null)//if block has been used, it cannot undo
             {
                 UndoHappen?.Invoke(previousStates.Pop());
             }
-            
+
         }
 
 

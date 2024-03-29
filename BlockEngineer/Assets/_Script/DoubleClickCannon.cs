@@ -125,6 +125,10 @@ public class DoubleClickCannon : MonoBehaviour
         Destroy(transform.parent.gameObject);
     }
 
+    private void OnDestroy()
+    {
+        gridObj.SetActive(true);
+    }
 }
 
 
