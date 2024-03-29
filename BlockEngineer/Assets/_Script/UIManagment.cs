@@ -72,11 +72,13 @@ public class UIManagment : MonoBehaviour
     }
     public void addBulletUI(GameObject obj)
     {
+        //GameManager.gm.cannonBulletNum += 1;
         bulletNumText.text = GameManager.gm.cannonBulletNum.ToString();
     }
 
     public void minusBulletUI(GameObject obj)
     {
+        //GameManager.gm.cannonBulletNum -= 1;
         bulletNumText.text = GameManager.gm.cannonBulletNum.ToString();
     }
 

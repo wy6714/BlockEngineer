@@ -16,6 +16,7 @@ TagManager:
   - cannon
   - level
   - testHelper
+  - placed
   layers:
   - Default
   - TransparentFX

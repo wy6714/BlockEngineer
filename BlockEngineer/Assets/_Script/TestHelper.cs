@@ -54,6 +54,7 @@ public class TestHelper : MonoBehaviour
         part1.SetActive(true);
         setCamera(new Vector3(0, 0, 0));
         setPlayerPos(new Vector3(-8.72f, -3.3f, 10));
+        GameManager.gm.gridObj = GameObject.FindWithTag("grid");
         testHelperPanel.SetActive(false);
     }
     public void goPart2()
@@ -62,6 +63,7 @@ public class TestHelper : MonoBehaviour
         part2.SetActive(true);
         setCamera(new Vector3(20, 0, 0));
         setPlayerPos(new Vector3(10.7f, -3.3f, 10));
+        GameManager.gm.gridObj = GameObject.FindWithTag("grid");
         testHelperPanel.SetActive(false);
     }
     public void goPart3()
@@ -70,6 +72,7 @@ public class TestHelper : MonoBehaviour
         part3.SetActive(true);
         setCamera(new Vector3(40, 0, 0));
         setPlayerPos(new Vector3(30.5f, -3.3f, 10));
+        GameManager.gm.gridObj = GameObject.FindWithTag("grid");
         testHelperPanel.SetActive(false);
     }
     public void goPart4()
@@ -78,6 +81,7 @@ public class TestHelper : MonoBehaviour
         part4.SetActive(true);
         setCamera(new Vector3(60, 0, 0));
         setPlayerPos(new Vector3(50.5f, -3.3f, 10));
+        GameManager.gm.gridObj = GameObject.FindWithTag("grid");
         testHelperPanel.SetActive(false);
     }
     public void goPart5()
@@ -86,6 +90,7 @@ public class TestHelper : MonoBehaviour
         part5.SetActive(true);
         setCamera(new Vector3(80, 0, 0));
         setPlayerPos(new Vector3(70.5f, -3.3f, 10));
+        GameManager.gm.gridObj = GameObject.FindWithTag("grid");
         testHelperPanel.SetActive(false);
     }
 

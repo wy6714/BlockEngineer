@@ -87,6 +87,10 @@ public class Grid : MonoBehaviour
                     //when placed block, store gamestate:playerPos, placed block obj, blockcost
                     Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
                     StoreGameState(playerPos, blockObj, blockScript.cost);
+
+                    //store placed game object for latter clear
+                    GameObject allPlaced = GameObject.FindWithTag("placed");
+                    blockObj.transform.parent = allPlaced.transform;
                 }
                 else
                 {
