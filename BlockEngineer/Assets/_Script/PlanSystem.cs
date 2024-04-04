@@ -9,6 +9,8 @@ public class PlanSystem : MonoBehaviour
     [SerializeField] private TMP_Text totalFruitText;
     public int totalFruitNum;
 
+    public static event Action<int> setFinalBlockNum;
+
     private void Update()
     {
         totalFruitText.text = totalFruitNum.ToString();
@@ -27,6 +29,11 @@ public class PlanSystem : MonoBehaviour
     public void changeFruit(int cost)
     {
         totalFruitNum += cost;
+    }
+
+    public void ReadyButton()
+    {
+        setFinalBlockNum?.Invoke(1);//int does not mean anything
     }
 
 }
