@@ -1,8 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System.Linq;
 
 public class PlanSystem : MonoBehaviour
 {
@@ -17,7 +17,10 @@ public class PlanSystem : MonoBehaviour
     //[SerializeField] private GameObject part3;
     //[SerializeField] private GameObject part4;
     //[SerializeField] private GameObject part5;
-    private List<GameObject> levelList = new List<GameObject>();
+    //private List<GameObject> levelList = new List<GameObject>();
+    private GameObject[] levelWithTag;
+
+    [SerializeField] private GameObject beforeReadyPanel;
 
     public static event Action<int> setFinalBlockNum;
 
@@ -26,25 +29,26 @@ public class PlanSystem : MonoBehaviour
         levelPart = 1;
 
         //store all level parts
-        GameObject[] levelWithTag = GameObject.FindGameObjectsWithTag("level");
-        foreach (GameObject levelPartObj in levelWithTag)
-        {
-            levelList.Insert(0, levelPartObj);//ensure level3.1 is the first item
-        }
+        levelWithTag = GameObject.FindGameObjectsWithTag("level");
+
+        //sort object by name
+        levelWithTag = levelWithTag.OrderBy(go => go.name).ToArray();
+        
         //only active level part 1 
-        foreach (GameObject levelPartObj in levelList)
+        foreach (GameObject levelPartObj in levelWithTag)
         {
             levelPartObj.SetActive(false);
         }
-        levelList[0].SetActive(true);
+        levelWithTag[0].SetActive(true);
 
-        /* print items in the LevelList
+        
+        //print items in the LevelList
          
-        foreach (GameObject levelObject in levelList)
-        {
-            Debug.Log("Index: " + levelList.IndexOf(levelObject) + ", Name: " + levelObject.name);
-        }
-        */
+       for(int i = 0; i<levelWithTag.Length; i++)
+       {
+            Debug.Log("Index: " + i + ", name: " + levelWithTag[i].name);
+       }
+        
 
 
     }
@@ -72,15 +76,16 @@ public class PlanSystem : MonoBehaviour
     public void ReadyButton()
     {
         setFinalBlockNum?.Invoke(1);//int does not mean anything
+        beforeReadyPanel.SetActive(false);
     }
 
     public void goNext()
     {
         if (levelPart < 5)
         {
-            levelList[levelPart - 1].SetActive(false);//inactive current level part
+            levelWithTag[levelPart - 1].SetActive(false);//inactive current level part
             levelPart += 1;
-            levelList[levelPart - 1].SetActive(true);//actice next level part
+            levelWithTag[levelPart - 1].SetActive(true);//actice next level part
             Camera.main.transform.position += new Vector3(cameraMoveAmount,0f,0f);
         }
     }
@@ -88,9 +93,9 @@ public class PlanSystem : MonoBehaviour
     {
         if (levelPart > 1)
         {
-            levelList[levelPart - 1].SetActive(false);
+            levelWithTag[levelPart - 1].SetActive(false);
             levelPart -= 1;
-            levelList[levelPart - 1].SetActive(true);
+            levelWithTag[levelPart - 1].SetActive(true);
             Camera.main.transform.position += new Vector3(-cameraMoveAmount, 0f, 0f);
         }
     }
