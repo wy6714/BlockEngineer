@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     public int life;
 
-    public string selected;
+    public BlockType selected;
 
     public bool pickaxeMode = false;
 
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        selected = "null";
+        selected = BlockType.empty;
         currentBlock = null;
         life = 3;
         pickaxeMode = false;
@@ -77,18 +77,18 @@ public class GameManager : MonoBehaviour
             currentSelectUI.sprite = currentBlock.GetComponent<SpriteRenderer>().sprite;
         }
 
-        if (selected == "pixkaxe")
-        {
-            pickaxeMode = true;
-        }
-        else
-        {
-            pickaxeMode = false;
-        }
+        //if (selected == "pixkaxe")
+        //{
+        //    pickaxeMode = true;
+        //}
+        //else
+        //{
+        //    pickaxeMode = false;
+        //}
 
         //avoid cannon disappear, but grid is off
         //if(selected == "normal" || selected == "jump" || selected == "spikes")
-        if(selected != "cannon")
+        if(selected != BlockType.cannon)
         {
             
             gridObj.SetActive(true);
@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
     {
         //pickaxeMode = false;
         currentBlock = spikes;
-        selected = "spikes";
+        selected = BlockType.spikes;
         Debug.Log(selected);
 
         //gridObj.SetActive(true);
@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
     {
         //pickaxeMode = false;
         currentBlock = normal;
-        selected = "normal";
+        selected = BlockType.normal;
         Debug.Log(selected);
 
         gridObj.SetActive(true);
@@ -140,23 +140,23 @@ public class GameManager : MonoBehaviour
     {
         //pickaxeMode = false;
         currentBlock = jumpBlock;
-        selected = "jump";
+        selected = BlockType.normal;
         Debug.Log(selected);
 
         //gridObj.SetActive(true);
     }
 
-    public void PickaxeBlcokButton()
-    {
-        currentBlock = null;
-        selected = "pickaxe";
-        currentSelectUI.sprite = pickaxeSprite;
-        selectPickaxeHappen?.Invoke(true);
-    }
+    //public void PickaxeBlcokButton()
+    //{
+    //    currentBlock = null;
+    //    selected = "pickaxe";
+    //    currentSelectUI.sprite = pickaxeSprite;
+    //    selectPickaxeHappen?.Invoke(true);
+    //}
 
     public void CannonBlockButton()
     {
-        selected = "cannon";
+        selected = BlockType.cannon;
         currentBlock = cannonBlock;
         Debug.Log(selected);
     }
@@ -175,5 +175,14 @@ public class GameManager : MonoBehaviour
     public void updateGridObj(int levelNum)
     {
         gridObj = GameObject.FindWithTag("grid"); 
+    }
+
+    public enum BlockType
+    {
+        empty,
+        normal,
+        jump,
+        spikes,
+        cannon
     }
 }

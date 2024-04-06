@@ -12,12 +12,7 @@ public class PlanSystem : MonoBehaviour
     //view level
     private int levelPart;
     private float cameraMoveAmount = 20f;
-    //[SerializeField] private GameObject part1;
-    //[SerializeField] private GameObject part2;
-    //[SerializeField] private GameObject part3;
-    //[SerializeField] private GameObject part4;
-    //[SerializeField] private GameObject part5;
-    //private List<GameObject> levelList = new List<GameObject>();
+   
     private GameObject[] levelWithTag;
 
     [SerializeField] private GameObject beforeReadyPanel;
@@ -28,13 +23,13 @@ public class PlanSystem : MonoBehaviour
     {
         levelPart = 1;
 
-        //store all level parts
+    //store all level parts
         levelWithTag = GameObject.FindGameObjectsWithTag("level");
 
-        //sort object by name
+    //sort object by name
         levelWithTag = levelWithTag.OrderBy(go => go.name).ToArray();
         
-        //only active level part 1 
+    //only active level part 1 
         foreach (GameObject levelPartObj in levelWithTag)
         {
             levelPartObj.SetActive(false);
@@ -42,12 +37,12 @@ public class PlanSystem : MonoBehaviour
         levelWithTag[0].SetActive(true);
 
         
-        //print items in the LevelList
+    //print items in the LevelList
          
-       for(int i = 0; i<levelWithTag.Length; i++)
-       {
-            Debug.Log("Index: " + i + ", name: " + levelWithTag[i].name);
-       }
+       //for(int i = 0; i<levelWithTag.Length; i++)
+       //{
+       //     Debug.Log("Index: " + i + ", name: " + levelWithTag[i].name);
+       //}
         
 
 

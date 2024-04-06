@@ -112,7 +112,7 @@ public class AudioManager : MonoBehaviour
     void Update()
     {
 
-        if (GameManager.gm.selected != "cannon")
+        if (GameManager.gm.selected != GameManager.BlockType.cannon)
         {
             cannonOnFireAudio.Pause();
         }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public class Grid : MonoBehaviour
 {
@@ -19,8 +20,13 @@ public class Grid : MonoBehaviour
     public static event Action<int> updateFruit;
     public static event Action<GameObject> ErrorHappened;
     public static event Action<GameState> UndoHappen;
+    public static event Action<GameManager.BlockType> preplanClickGrid;
 
     private Block blockScript;
+
+    public PlayMode.mode currentMode;
+    private int preplanBlockLeft;
+    private bool enoughPreplanLeft;
 
     public struct GameState
     {
@@ -35,6 +41,7 @@ public class Grid : MonoBehaviour
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         placeBlock = normalBlock;
+
     }
 
     private void Update()
@@ -70,37 +77,74 @@ public class Grid : MonoBehaviour
 
             }
 
-
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
             {
                 Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, 10f);
 
-                if(UIManagment.fruitNum - blockScript.cost >= 0)
+                // normal play mode:
+                switch (currentMode)
                 {
-                    GameObject blockObj = Instantiate(GameManager.gm.currentBlock, spawnPosition, Quaternion.identity);
+                    case PlayMode.mode.mode1:
+                        if (UIManagment.fruitNum - blockScript.cost >= 0)
+                        {
+                            GameObject blockObj = Instantiate(GameManager.gm.currentBlock, spawnPosition, Quaternion.identity);
 
-                    // use observer pattern to update fruit UI, pass its cost
-                    //Block blockScript = blockObj.GetComponent<Block>();
-                    updateFruit?.Invoke(blockScript.cost);
-                    Debug.Log("Placed a block");
+                            // use observer pattern to update fruit UI, pass its cost
+                            //Block blockScript = blockObj.GetComponent<Block>();
+                            updateFruit?.Invoke(blockScript.cost);
+                            Debug.Log("Placed a block");
 
-                    //when placed block, store gamestate:playerPos, placed block obj, blockcost
-                    Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
-                    StoreGameState(playerPos, blockObj, blockScript.cost);
+                            //when placed block, store gamestate:playerPos, placed block obj, blockcost
+                            Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+                            StoreGameState(playerPos, blockObj, blockScript.cost);
 
-                    //store placed game object for latter clear
-                    GameObject allPlaced = GameObject.FindWithTag("placed");
-                    blockObj.transform.parent = allPlaced.transform;
+                            //store placed game object for latter clear
+                            GameObject allPlaced = GameObject.FindWithTag("placed");
+                            blockObj.transform.parent = allPlaced.transform;
+                        }
+                        else
+                        {
+                            updateFruit?.Invoke(-1);//do not have enough fruit
+                            ErrorHappened?.Invoke(gameObject);
+                        }
+                        return;
+
+                    case PlayMode.mode.mode2:
+                        //pre plan mode:
+                        if(GameManager.gm.selected == GameManager.BlockType.normal)
+                        {
+                            accessPreplanBlock(GameManager.BlockType.normal);
+                            enoughPreplanLeft = preplanBlockLeft >= 1 ? true : false;
+                        }
+
+                        if (enoughPreplanLeft)
+                        {
+                            GameObject blockObj = Instantiate(GameManager.gm.currentBlock, spawnPosition, Quaternion.identity);
+                            Debug.Log("placed block");
+                            preplanClickGrid?.Invoke(GameManager.BlockType.normal);
+                        }
+                        
+                        return;
                 }
-                else
-                {
-                    updateFruit?.Invoke(-1);//do not have enough fruit
-                    ErrorHappened?.Invoke(gameObject);
-                }
+
+                
                 
             }
         }
 
+    }
+
+    public void accessPreplanBlock(GameManager.BlockType blockName)
+    {
+        PlanOperation[] planOperations = FindObjectsOfType<PlanOperation>(); // Find all PlanOperation scripts in the scene
+
+        foreach (PlanOperation planOperation in planOperations)
+        {
+            if (planOperation.blockName == GameManager.BlockType.normal)
+            {
+                preplanBlockLeft = planOperation.blockNum;
+            }
+        }
     }
 
     private void OnMouseOver()//mouse hover -> hoverSprite

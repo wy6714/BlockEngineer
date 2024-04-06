@@ -7,8 +7,9 @@ using UnityEngine;
 public class PlanOperation : MonoBehaviour
 {
     [SerializeField] private TMP_Text numText;
-    private int blockNum;
-    [SerializeField] private int cost;
+    public int blockNum;//grid need to access
+    public GameManager.BlockType blockName;
+    public int cost;
 
     [SerializeField] private TMP_Text finalNumText;//top Left Num Text UI
 
@@ -26,16 +27,19 @@ public class PlanOperation : MonoBehaviour
     private void OnEnable()
     {
         PlanSystem.setFinalBlockNum += updateFinalNum;
+        Grid.preplanClickGrid += UpdatePreplanBlockNum;
     }
 
     private void OnDisable()
     {
         PlanSystem.setFinalBlockNum -= updateFinalNum;
+        Grid.preplanClickGrid -= UpdatePreplanBlockNum;
     }
 
     private void Update()
     {
         numText.text = blockNum.ToString();
+        finalNumText.text = blockNum.ToString();
     }
 
     private void Start()
@@ -63,6 +67,15 @@ public class PlanOperation : MonoBehaviour
         {
             blockNum -= 1;
             changeTotalFruit?.Invoke(cost); //less block,more fruit left, so add cost
+        }
+        
+    }
+
+    public void UpdatePreplanBlockNum(GameManager.BlockType blockType)
+    {
+        if(blockName == blockType)
+        {
+            blockNum -= 1;
         }
         
     }
