@@ -24,6 +24,11 @@ public class AudioManager : MonoBehaviour
     //bullet
     [SerializeField] private AudioSource collectBulletAudio;
 
+    //add and Minus Button
+    [SerializeField] private AudioSource addButtonAudio;
+    [SerializeField] private AudioSource minusButtonAudio;
+    [SerializeField] private AudioSource playButtonAudio;
+
 
     private void OnEnable()
     {
@@ -60,6 +65,9 @@ public class AudioManager : MonoBehaviour
 
         //UI
         UIManagment.NoMoneyUIAudioHappens += playerErrorAudio;
+
+        //preplan place block audio
+        Grid.preplanPlaceBlockAudio += preplanPlaceBlockAudioPlay;
         
 
 
@@ -101,6 +109,9 @@ public class AudioManager : MonoBehaviour
 
         //UI
         UIManagment.NoMoneyUIAudioHappens -= playerErrorAudio;
+
+        //preplan place block audio
+        Grid.preplanPlaceBlockAudio -= preplanPlaceBlockAudioPlay;
     }
     // Start is called before the first frame update
     void Start()
@@ -152,5 +163,26 @@ public class AudioManager : MonoBehaviour
 
     //collectible bullet
     public void playCollectBulletAudio(GameObject obj) => collectBulletAudio.Play();
+
+    //preplan place block
+    public void preplanPlaceBlockAudioPlay(bool isEnoughLeft)
+    {
+        if (isEnoughLeft)
+        {
+            placeBlockAudio.Play();
+        }
+        else
+        {
+            errorAudio.Play();
+        }
+    }
+
+    public void playAddButtonAudio()=> addButtonAudio.Play();
+   
+    public void playMinusButtonAduio()=> minusButtonAudio.Play();
+
+    public void playPlayButtonAduio() => playButtonAudio.Play();
+
+
 
 }

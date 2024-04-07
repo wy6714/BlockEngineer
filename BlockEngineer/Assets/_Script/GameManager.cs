@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour
     {
         //pickaxeMode = false;
         currentBlock = jumpBlock;
-        selected = BlockType.normal;
+        selected = BlockType.jump;
         Debug.Log(selected);
 
         //gridObj.SetActive(true);

@@ -21,6 +21,7 @@ public class Grid : MonoBehaviour
     public static event Action<GameObject> ErrorHappened;
     public static event Action<GameState> UndoHappen;
     public static event Action<GameManager.BlockType> preplanClickGrid;
+    public static event Action<bool> preplanPlaceBlockAudio;
 
     private Block blockScript;
 
@@ -111,20 +112,25 @@ public class Grid : MonoBehaviour
 
                     case PlayMode.mode.mode2:
                         //pre plan mode:
-                        if(GameManager.gm.selected == GameManager.BlockType.normal)
+                        switch (GameManager.gm.selected)
                         {
-                            accessPreplanBlock(GameManager.BlockType.normal);
-                            enoughPreplanLeft = preplanBlockLeft >= 1 ? true : false;
-                        }
-
-                        if (enoughPreplanLeft)
-                        {
-                            GameObject blockObj = Instantiate(GameManager.gm.currentBlock, spawnPosition, Quaternion.identity);
-                            Debug.Log("placed block");
-                            preplanClickGrid?.Invoke(GameManager.BlockType.normal);
+                            case GameManager.BlockType.empty:
+                                return;
+                            case GameManager.BlockType.normal:
+                                preplanPlaceBlock(GameManager.BlockType.normal, spawnPosition);
+                                return;
+                            case GameManager.BlockType.jump:
+                                preplanPlaceBlock(GameManager.BlockType.jump, spawnPosition);
+                                return;
+                            case GameManager.BlockType.spikes:
+                                preplanPlaceBlock(GameManager.BlockType.spikes, spawnPosition);
+                                return;
+                            case GameManager.BlockType.cannon:
+                                preplanPlaceBlock(GameManager.BlockType.cannon, spawnPosition);
+                                return;
                         }
                         
-                        return;
+                        return;//for playmode switch
                 }
 
                 
@@ -134,13 +140,31 @@ public class Grid : MonoBehaviour
 
     }
 
+    public void preplanPlaceBlock(GameManager.BlockType blockName, Vector3 spawnPosition)
+    {
+        accessPreplanBlock(blockName);
+        enoughPreplanLeft = preplanBlockLeft >= 1 ? true : false;
+
+        if (enoughPreplanLeft)
+        {
+            GameObject blockObj = Instantiate(GameManager.gm.currentBlock, spawnPosition, Quaternion.identity);
+            Debug.Log("placed block");
+            preplanClickGrid?.Invoke(blockName);
+            preplanPlaceBlockAudio?.Invoke(true);
+        }
+        else
+        {
+            preplanPlaceBlockAudio?.Invoke(false);
+        }
+    }
+
     public void accessPreplanBlock(GameManager.BlockType blockName)
     {
         PlanOperation[] planOperations = FindObjectsOfType<PlanOperation>(); // Find all PlanOperation scripts in the scene
 
         foreach (PlanOperation planOperation in planOperations)
         {
-            if (planOperation.blockName == GameManager.BlockType.normal)
+            if (planOperation.blockName == blockName)
             {
                 preplanBlockLeft = planOperation.blockNum;
             }

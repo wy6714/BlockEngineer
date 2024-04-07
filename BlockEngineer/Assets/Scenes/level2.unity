@@ -7260,6 +7260,11 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 4505463903363053226, guid: 10f73073c46fd423794f547ac4df5456, type: 3}
   m_PrefabInstance: {fileID: 569821073}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &569821075 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4168446601358547788, guid: 10f73073c46fd423794f547ac4df5456, type: 3}
+  m_PrefabInstance: {fileID: 569821073}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &569821076 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 4687878520483770289, guid: 10f73073c46fd423794f547ac4df5456, type: 3}
@@ -13289,13 +13294,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 569821078}
     - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
+      propertyPath: addButtonAudio
+      value: 
+      objectReference: {fileID: 1768263584}
+    - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
       propertyPath: placeBlockAudio
       value: 
       objectReference: {fileID: 569821074}
     - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
+      propertyPath: playButtonAudio
+      value: 
+      objectReference: {fileID: 569821075}
+    - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
       propertyPath: cannonShootAudio
       value: 
       objectReference: {fileID: 137958065}
+    - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
+      propertyPath: minusButtonAudio
+      value: 
+      objectReference: {fileID: 1768263583}
     - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
       propertyPath: birdMovementAudio
       value: 
@@ -23800,6 +23817,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de497c80dd84d4f90a7bac8c2fe1085f, type: 3}
+--- !u!82 &1768263583 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2324134091516505196, guid: 10f73073c46fd423794f547ac4df5456, type: 3}
+  m_PrefabInstance: {fileID: 569821073}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1768263584 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 999666732499910566, guid: 10f73073c46fd423794f547ac4df5456, type: 3}
+  m_PrefabInstance: {fileID: 569821073}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1769856599
 PrefabInstance:
   m_ObjectHideFlags: 0

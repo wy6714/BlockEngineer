@@ -279,6 +279,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1033626257}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: playAddButtonAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &49906762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,6 +682,18 @@ MonoBehaviour:
       - m_Target: {fileID: 440998451}
         m_TargetAssemblyTypeName: PlanSystem, Assembly-CSharp
         m_MethodName: ReadyButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1033626257}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: playPlayButtonAduio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1684,6 +1708,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315894404}
   m_CullTransparentMesh: 1
+--- !u!82 &331864306 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2324134091516505196, guid: 10f73073c46fd423794f547ac4df5456, type: 3}
+  m_PrefabInstance: {fileID: 1563663953}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &333422572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1835,6 +1864,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1029421901}
         m_TargetAssemblyTypeName: PlanOperation, Assembly-CSharp
         m_MethodName: minusButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1033626257}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: playMinusButtonAduio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2082,6 +2123,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1033626257}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: playMinusButtonAduio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &346670011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2238,13 +2291,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1563663964}
     - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
+      propertyPath: addButtonAudio
+      value: 
+      objectReference: {fileID: 1393254924}
+    - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
       propertyPath: placeBlockAudio
       value: 
       objectReference: {fileID: 1563663961}
     - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
+      propertyPath: playButtonAudio
+      value: 
+      objectReference: {fileID: 1469284971}
+    - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
       propertyPath: cannonShootAudio
       value: 
       objectReference: {fileID: 1563663957}
+    - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
+      propertyPath: minusButtonAudio
+      value: 
+      objectReference: {fileID: 331864306}
     - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
       propertyPath: birdMovementAudio
       value: 
@@ -2253,6 +2318,10 @@ PrefabInstance:
       propertyPath: cannonOnFireAudio
       value: 
       objectReference: {fileID: 1563663956}
+    - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
+      propertyPath: collectBulletAudio
+      value: 
+      objectReference: {fileID: 1350615776}
     - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
       propertyPath: failedAttackBatAudio
       value: 
@@ -3750,6 +3819,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1033626257}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: playAddButtonAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &586704813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4959,6 +5040,18 @@ MonoBehaviour:
       - m_Target: {fileID: 340814762}
         m_TargetAssemblyTypeName: PlanOperation, Assembly-CSharp
         m_MethodName: addButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1033626257}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: playAddButtonAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7296,6 +7389,17 @@ MonoBehaviour:
   blockName: 2
   cost: 2
   finalNumText: {fileID: 1284254101}
+--- !u!114 &1033626257 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
+  m_PrefabInstance: {fileID: 376963654}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ca6fea40a944f71b607d4c82eb598d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1039870335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7652,6 +7756,18 @@ MonoBehaviour:
       - m_Target: {fileID: 971927502}
         m_TargetAssemblyTypeName: PlanOperation, Assembly-CSharp
         m_MethodName: addButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1033626257}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: playAddButtonAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9200,6 +9316,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231919253}
   m_CullTransparentMesh: 1
+--- !u!1001 &1246937953
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1103284781243739991, guid: 628b4ba5337c04ccc8fe1b6254e9a89d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103284781243739991, guid: 628b4ba5337c04ccc8fe1b6254e9a89d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103284781243739991, guid: 628b4ba5337c04ccc8fe1b6254e9a89d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103284781243739991, guid: 628b4ba5337c04ccc8fe1b6254e9a89d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103284781243739991, guid: 628b4ba5337c04ccc8fe1b6254e9a89d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103284781243739991, guid: 628b4ba5337c04ccc8fe1b6254e9a89d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103284781243739991, guid: 628b4ba5337c04ccc8fe1b6254e9a89d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103284781243739991, guid: 628b4ba5337c04ccc8fe1b6254e9a89d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103284781243739991, guid: 628b4ba5337c04ccc8fe1b6254e9a89d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103284781243739991, guid: 628b4ba5337c04ccc8fe1b6254e9a89d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582624880524779906, guid: 628b4ba5337c04ccc8fe1b6254e9a89d, type: 3}
+      propertyPath: m_Name
+      value: collectibleBullet
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 628b4ba5337c04ccc8fe1b6254e9a89d, type: 3}
 --- !u!1001 &1251265096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9827,6 +10000,11 @@ MonoBehaviour:
   blockName: 4
   cost: 5
   finalNumText: {fileID: 385404915}
+--- !u!82 &1350615776 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1896103351970992020, guid: 10f73073c46fd423794f547ac4df5456, type: 3}
+  m_PrefabInstance: {fileID: 1563663953}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1361736968
 GameObject:
   m_ObjectHideFlags: 0
@@ -10071,6 +10249,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 683200386748697247, guid: 9f644b239d1124749be3427bed4f4614, type: 3}
   m_PrefabInstance: {fileID: 1390413261}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1393254924 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 999666732499910566, guid: 10f73073c46fd423794f547ac4df5456, type: 3}
+  m_PrefabInstance: {fileID: 1563663953}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1413434268
 GameObject:
   m_ObjectHideFlags: 0
@@ -10156,6 +10339,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1347520058}
         m_TargetAssemblyTypeName: PlanOperation, Assembly-CSharp
         m_MethodName: minusButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1033626257}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: playMinusButtonAduio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10806,6 +11001,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f928c1f7c557402d808af476ce8a97d, type: 3}
+--- !u!82 &1469284971 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4168446601358547788, guid: 10f73073c46fd423794f547ac4df5456, type: 3}
+  m_PrefabInstance: {fileID: 1563663953}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1473802476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12378,6 +12578,18 @@ MonoBehaviour:
       - m_Target: {fileID: 971927502}
         m_TargetAssemblyTypeName: PlanOperation, Assembly-CSharp
         m_MethodName: minusButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1033626257}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: playMinusButtonAduio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14029,9 +14241,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 1578947759}
   - {fileID: 1671108770}
-  - {fileID: 1135617356}
   - {fileID: 1202986078}
   - {fileID: 1853961830}
+  - {fileID: 1135617356}
   - {fileID: 597510643}
   - {fileID: 376963654}
   - {fileID: 1563663953}
@@ -14044,3 +14256,4 @@ SceneRoots:
   - {fileID: 1231180426}
   - {fileID: 1444019457}
   - {fileID: 1299973405}
+  - {fileID: 1246937953}
