@@ -4152,7 +4152,7 @@ MonoBehaviour:
   addButtonAudio: {fileID: 2135584519}
   minusButtonAudio: {fileID: 2135584518}
   playButtonAudio: {fileID: 2135584517}
-  selectButtonAudio: {fileID: 0}
+  selectButtonAudio: {fileID: 2135584520}
 --- !u!4 &279604043
 Transform:
   m_ObjectHideFlags: 0
@@ -6814,6 +6814,18 @@ MonoBehaviour:
       - m_Target: {fileID: 901377497}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: NormalButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 279604042}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySelectButtonAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14324,6 +14336,18 @@ MonoBehaviour:
       - m_Target: {fileID: 901377497}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: SpikesButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 279604042}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySelectButtonAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25539,6 +25563,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 279604042}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySelectButtonAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1881056344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28932,6 +28968,11 @@ AudioSource:
 --- !u!82 &2135584519 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 999666732499910566, guid: 10f73073c46fd423794f547ac4df5456, type: 3}
+  m_PrefabInstance: {fileID: 2135584516}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2135584520 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2898034530376441938, guid: 10f73073c46fd423794f547ac4df5456, type: 3}
   m_PrefabInstance: {fileID: 2135584516}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2140236421

@@ -29,6 +29,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource minusButtonAudio;
     [SerializeField] private AudioSource playButtonAudio;
     [SerializeField] private AudioSource selectButtonAudio;
+    [SerializeField] private AudioSource viewPreviousButtonAudio;
+    [SerializeField] private AudioSource viewNextButtonAudio;
 
     private void OnEnable()
     {
@@ -184,6 +186,10 @@ public class AudioManager : MonoBehaviour
     public void playPlayButtonAduio() => playButtonAudio.Play();
 
     public void PlaySelectButtonAudio() => selectButtonAudio.Play();
+
+    public void PlayViewPreviousAudio() => viewPreviousButtonAudio.Play();
+
+    public void PlayViewNextAudio() => viewNextButtonAudio.Play();
 
 
 
