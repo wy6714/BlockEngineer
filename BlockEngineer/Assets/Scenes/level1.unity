@@ -4152,6 +4152,7 @@ MonoBehaviour:
   addButtonAudio: {fileID: 2135584519}
   minusButtonAudio: {fileID: 2135584518}
   playButtonAudio: {fileID: 2135584517}
+  selectButtonAudio: {fileID: 0}
 --- !u!4 &279604043
 Transform:
   m_ObjectHideFlags: 0
@@ -21437,7 +21438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 36, y: -30}
+  m_AnchoredPosition: {x: 20, y: -20}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1606204628
@@ -27173,9 +27174,9 @@ RectTransform:
   - {fileID: 4163989}
   m_Father: {fileID: 1745622238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -443, y: 213}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 20, y: -50}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1985058551

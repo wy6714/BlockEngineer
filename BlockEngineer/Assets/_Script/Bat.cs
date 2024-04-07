@@ -7,7 +7,7 @@ public class Bat : MonoBehaviour
 {
     [SerializeField] private bool cellOn = false;
     [SerializeField] private float chasingSpeed = 1f;
-    [SerializeField] private Transform playerTrans;
+    [SerializeField] private Transform playerTrans = null;
     [SerializeField] private int attackRange = 3;
     [SerializeField] private bool Freze;
     //public bool Freze;
@@ -23,7 +23,13 @@ public class Bat : MonoBehaviour
         anim = GetComponent<Animator>();
         Freze = false;
         batOriginPos = gameObject.transform.position;
-        playerTrans = GameObject.FindWithTag("Player").transform;
+
+        GameObject playerObj = GameObject.FindWithTag("Player");
+        if (playerObj != null)
+        {
+            playerTrans = playerObj.transform;
+        }
+        //playerTrans = GameObject.FindWithTag("Player").transform;
 
     }
     private void OnEnable()
@@ -39,24 +45,29 @@ public class Bat : MonoBehaviour
     }
     private void Update()
     {
-        playerTrans = GameObject.FindWithTag("Player").transform;
-        float disToPlayer = Vector2.Distance(transform.position, playerTrans.position);
-        if (disToPlayer <= attackRange)
+        GameObject playerObj = GameObject.FindWithTag("Player");
+        if (playerObj != null)
         {
-            cellOn = true;
-            ChasingPlayer();
-            anim.SetBool("isFly", true);
-            
-        }
-        else
-        {
-            batFlyHappens?.Invoke(gameObject);
-            cellOn = false;
-            anim.SetBool("isFly", false);
-        }
+            playerTrans = playerObj.transform;
 
-        Flip();
-        //Debug.Log(batOriginPos);
+            //chasing player
+            float disToPlayer = Vector2.Distance(transform.position, playerTrans.position);
+            if (disToPlayer <= attackRange)
+            {
+                cellOn = true;
+                ChasingPlayer();
+                anim.SetBool("isFly", true);
+
+            }
+            else
+            {
+                batFlyHappens?.Invoke(gameObject);
+                cellOn = false;
+                anim.SetBool("isFly", false);
+            }
+
+            Flip();
+        }
 
     }
 

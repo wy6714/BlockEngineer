@@ -24,11 +24,11 @@ public class AudioManager : MonoBehaviour
     //bullet
     [SerializeField] private AudioSource collectBulletAudio;
 
-    //add and Minus Button
+    //UI Button
     [SerializeField] private AudioSource addButtonAudio;
     [SerializeField] private AudioSource minusButtonAudio;
     [SerializeField] private AudioSource playButtonAudio;
-
+    [SerializeField] private AudioSource selectButtonAudio;
 
     private void OnEnable()
     {
@@ -182,6 +182,8 @@ public class AudioManager : MonoBehaviour
     public void playMinusButtonAduio()=> minusButtonAudio.Play();
 
     public void playPlayButtonAduio() => playButtonAudio.Play();
+
+    public void PlaySelectButtonAudio() => selectButtonAudio.Play();
 
 
 

@@ -7541,8 +7541,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284440520
-  m_fontColor: {r: 0.78431374, g: 0.37254903, b: 0.37254903, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7949,7 +7949,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 37.6, y: -78}
+  m_AnchoredPosition: {x: 20, y: -80}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &616017885
@@ -13321,6 +13321,10 @@ PrefabInstance:
       propertyPath: cannonOnFireAudio
       value: 
       objectReference: {fileID: 126775689}
+    - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
+      propertyPath: selectButtonAudio
+      value: 
+      objectReference: {fileID: 1884058602}
     - target: {fileID: 1965427971747752912, guid: e5814270837f6441db672bbd98c23c7d, type: 3}
       propertyPath: collectBulletAudio
       value: 
@@ -20830,6 +20834,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1024287161}
+    - target: {fileID: 2983225870795035071, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3310174488131376704, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -20854,6 +20862,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1024287160}
+    - target: {fileID: 6115401289486896861, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115401289486896861, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115401289486896861, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115401289486896861, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480244873012886873, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480244873012886873, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948336595435524343, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7516733931675709238, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -25681,6 +25717,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9ca0ffa2865f450794c77fa3a23d267, type: 3}
+--- !u!82 &1884058602 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2898034530376441938, guid: 10f73073c46fd423794f547ac4df5456, type: 3}
+  m_PrefabInstance: {fileID: 569821073}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1895167181 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3987355409224815140, guid: 10a734fec284d4b9aac6df6cb9bfde22, type: 3}
