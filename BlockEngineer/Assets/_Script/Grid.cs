@@ -129,12 +129,12 @@ public class Grid : MonoBehaviour
                                 preplanPlaceBlock(GameManager.BlockType.cannon, spawnPosition);
                                 return;
                         }
-                        
+
                         return;//for playmode switch
                 }
 
-                
-                
+
+
             }
         }
 
@@ -149,6 +149,11 @@ public class Grid : MonoBehaviour
         {
             GameObject blockObj = Instantiate(GameManager.gm.currentBlock, spawnPosition, Quaternion.identity);
             Debug.Log("placed block");
+
+            //store placed game object for latter clear
+            GameObject allPlaced = GameObject.FindWithTag("placed");
+            blockObj.transform.parent = allPlaced.transform;
+
             preplanClickGrid?.Invoke(blockName);
             preplanPlaceBlockAudio?.Invoke(true);
         }

@@ -18,9 +18,9 @@ public class MovingPlatform : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(transform.position == wayPoints[target].position)
+        if (transform.position == wayPoints[target].position)
         {
-            if(target == wayPoints.Count - 1)
+            if (target == wayPoints.Count - 1)
             {
                 target = 0;
             }
@@ -35,6 +35,10 @@ public class MovingPlatform : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             collision.transform.SetParent(this.transform);
+        }
+        if (collision == null)
+        {
+            return;
         }
     }
 

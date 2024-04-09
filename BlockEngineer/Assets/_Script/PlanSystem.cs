@@ -8,6 +8,7 @@ public class PlanSystem : MonoBehaviour
 {
     [SerializeField] private TMP_Text totalFruitText;
     [SerializeField] private TMP_Text BulletNumText;
+    [SerializeField] private TMP_Text lifeText;
     public int totalFruitNum;
 
     //view level
@@ -17,6 +18,7 @@ public class PlanSystem : MonoBehaviour
     private GameObject[] levelWithTag;
 
     [SerializeField] private GameObject beforeReadyPanel;
+    [SerializeField] private GameObject playerObj;
 
     public static event Action<int> setFinalBlockNum;
 
@@ -37,6 +39,8 @@ public class PlanSystem : MonoBehaviour
         }
         levelWithTag[0].SetActive(true);
 
+        //inactive player
+        GameObject.FindWithTag("Player").SetActive(false);
 
         //print items in the LevelList
 
@@ -52,6 +56,7 @@ public class PlanSystem : MonoBehaviour
     private void Update()
     {
         totalFruitText.text = totalFruitNum.ToString();
+        lifeText.text = GameManager.gm.life.ToString();
     }
 
     private void OnEnable()
@@ -75,6 +80,8 @@ public class PlanSystem : MonoBehaviour
     {
         setFinalBlockNum?.Invoke(1);//int does not mean anything
         beforeReadyPanel.SetActive(false);
+        //active player
+        playerObj.SetActive(true);
     }
 
     public void goNext()
