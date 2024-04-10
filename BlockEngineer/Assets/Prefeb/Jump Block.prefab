@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 2
+  blockName: 2
 --- !u!212 &7640494412619630248
 SpriteRenderer:
   m_ObjectHideFlags: 0

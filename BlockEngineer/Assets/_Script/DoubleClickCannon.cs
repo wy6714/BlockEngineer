@@ -39,7 +39,7 @@ public class DoubleClickCannon : MonoBehaviour
         //get mouse position
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if(GameManager.gm.cannonBulletNum > 0)
+        if (GameManager.gm.cannonBulletNum > 0)
         {
             ControlCannon();
             if (Input.GetMouseButtonDown(0))
@@ -56,7 +56,7 @@ public class DoubleClickCannon : MonoBehaviour
                 {
                     shoot();
                 }
-                
+
             }
         }
         else
@@ -78,9 +78,9 @@ public class DoubleClickCannon : MonoBehaviour
                 }
 
             }
-            
+
         }
-  
+
     }
 
     private void ControlCannon()
@@ -94,7 +94,7 @@ public class DoubleClickCannon : MonoBehaviour
     {
         float mouseToCannonDis = Vector2.Distance(mousePos, gameObject.transform.position);
 
-        if(mouseToCannonDis > 0.5f)//avoid shoot when click to delete cannon
+        if (mouseToCannonDis > 0.5f)//avoid shoot when click to delete cannon
         {
             anim.SetTrigger("CannonFire");
             fireEffecrHappens?.Invoke(gameObject);//fire effect anim
@@ -116,7 +116,7 @@ public class DoubleClickCannon : MonoBehaviour
                 GameManager.gm.cannonBulletNum);
         }
     }
-    
+
 
     void OnMouseDown()
     {
@@ -128,6 +128,7 @@ public class DoubleClickCannon : MonoBehaviour
     private void OnDestroy()
     {
         gridObj.SetActive(true);
+        cannonOnHappens?.Invoke(false);
     }
 }
 

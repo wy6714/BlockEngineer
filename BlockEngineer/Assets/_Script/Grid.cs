@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Linq;
+using System.Diagnostics;
 
 public class Grid : MonoBehaviour
 {
@@ -93,7 +94,7 @@ public class Grid : MonoBehaviour
                             // use observer pattern to update fruit UI, pass its cost
                             //Block blockScript = blockObj.GetComponent<Block>();
                             updateFruit?.Invoke(blockScript.cost);
-                            Debug.Log("Placed a block");
+                            UnityEngine.Debug.Log("Placed a block");
 
                             //when placed block, store gamestate:playerPos, placed block obj, blockcost
                             Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
@@ -148,7 +149,7 @@ public class Grid : MonoBehaviour
         if (enoughPreplanLeft)
         {
             GameObject blockObj = Instantiate(GameManager.gm.currentBlock, spawnPosition, Quaternion.identity);
-            Debug.Log("placed block");
+            UnityEngine.Debug.Log("placed block");
 
             //store placed game object for latter clear
             GameObject allPlaced = GameObject.FindWithTag("placed");
@@ -156,6 +157,10 @@ public class Grid : MonoBehaviour
 
             preplanClickGrid?.Invoke(blockName);
             preplanPlaceBlockAudio?.Invoke(true);
+
+            //when placed block, store gamestate:playerPos, placed block obj, blockcost
+            Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+            StoreGameState(playerPos, blockObj, preplanBlockLeft);
         }
         else
         {
@@ -216,13 +221,49 @@ public class Grid : MonoBehaviour
 
     public void UndoButton()
     {
-        if (previousStates.Count > 0)
+        switch (currentMode)
         {
-            if (previousStates.Peek().placedBlock != null)//if block has been used, it cannot undo
-            {
-                UndoHappen?.Invoke(previousStates.Pop());
-            }
+            case PlayMode.mode.mode1:
+                if (previousStates.Count > 0)
+                {
+                    if (previousStates.Peek().placedBlock != null)//if block has been used, it cannot undo
+                    {
+                        UndoHappen?.Invoke(previousStates.Pop());
+                    }
 
+                }
+                return;
+            case PlayMode.mode.mode2:
+                if (previousStates.Count > 0)
+                {
+                    if (previousStates.Peek().placedBlock != null)
+                    {
+                        //update UI
+                        GameManager.BlockType previousBlcokType = previousStates.Peek().placedBlock.GetComponent<Block>().blockName;
+                        int previousBlockNum = previousStates.Peek().fruitCost;
+                        preplanAssignBlockNum(previousBlcokType, previousBlockNum);
+
+                        //UpdateBlock
+                        Destroy(previousStates.Peek().placedBlock);
+                        //Palyer
+                        UndoHappen?.Invoke(previousStates.Pop());
+                    }
+                }
+                return;
+        }
+
+    }
+
+    public void preplanAssignBlockNum(GameManager.BlockType blockName, int blockNum)
+    {
+        PlanOperation[] planOperations = FindObjectsOfType<PlanOperation>(); // Find all PlanOperation scripts in the scene
+
+        foreach (PlanOperation planOperation in planOperations)
+        {
+            if (planOperation.blockName == blockName)
+            {
+                planOperation.blockNum = blockNum;
+            }
         }
     }
 

@@ -6,6 +6,8 @@ public class Block : MonoBehaviour
 {
     public int cost;
     private bool isPickaxeMode;
+
+    public GameManager.BlockType blockName;
     private void OnEnable()
     {
         GameManager.selectPickaxeHappen += usePickaxe;
