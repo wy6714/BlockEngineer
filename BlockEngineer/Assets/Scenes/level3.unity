@@ -2298,6 +2298,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1276679776}
     m_Modifications:
+    - target: {fileID: 948705335777436236, guid: 675456e9f454742a3aff6f6ac2fa2215, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.67
+      objectReference: {fileID: 0}
     - target: {fileID: 1604663180474014549, guid: 675456e9f454742a3aff6f6ac2fa2215, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.610001
@@ -2346,6 +2350,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8290616574345238804, guid: 675456e9f454742a3aff6f6ac2fa2215, type: 3}
+      propertyPath: nextLevel
+      value: 
+      objectReference: {fileID: 1231180425}
+    - target: {fileID: 8290616574345238804, guid: 675456e9f454742a3aff6f6ac2fa2215, type: 3}
+      propertyPath: currentLevel
+      value: 
+      objectReference: {fileID: 1276679775}
+    - target: {fileID: 8290616574345238804, guid: 675456e9f454742a3aff6f6ac2fa2215, type: 3}
+      propertyPath: cameraTargetTrans
+      value: 
+      objectReference: {fileID: 1045292312}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15981,6 +15997,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccfa24f591007476abb07d8ed0a88b23, type: 3}
+--- !u!4 &1045292312 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8952924902651565199, guid: 454c1c8bbf71d49d199003294fe3d711, type: 3}
+  m_PrefabInstance: {fileID: 1015892852}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1052725941
 PrefabInstance:
   m_ObjectHideFlags: 0
