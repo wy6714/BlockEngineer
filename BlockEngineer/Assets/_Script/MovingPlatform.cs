@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
@@ -46,7 +47,8 @@ public class MovingPlatform : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.transform.SetParent(null);
+            if (collision.gameObject.activeSelf)
+                collision.transform.SetParent(null);
         }
     }
 
