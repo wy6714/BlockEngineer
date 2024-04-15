@@ -21,6 +21,7 @@ TagManager:
   - Flag
   - preplan
   - bullet
+  - candleLight
   layers:
   - Default
   - TransparentFX
