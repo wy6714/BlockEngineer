@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject spikes;
     public GameObject jumpBlock;
     public GameObject cannonBlock;
+    public GameObject candleBlock;
     public Sprite pickaxeSprite;
     public string currentLevel;
     public GameObject gridObj;
@@ -72,7 +73,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(currentLevel);
         }
 
-        if(currentBlock != null)
+        if (currentBlock != null)
         {
             currentSelectUI.sprite = currentBlock.GetComponent<SpriteRenderer>().sprite;
         }
@@ -88,13 +89,13 @@ public class GameManager : MonoBehaviour
 
         //avoid cannon disappear, but grid is off
         //if(selected == "normal" || selected == "jump" || selected == "spikes")
-        if(selected != BlockType.cannon)
+        if (selected != BlockType.cannon)
         {
-            
+
             gridObj.SetActive(true);
             //Debug.Log("grid is not null, and set actived");
-            
-            
+
+
             //destory cannon
             GameObject cannonObj = GameObject.FindWithTag("cannon");
 
@@ -107,12 +108,12 @@ public class GameManager : MonoBehaviour
     }
     public void RespawnPoint(GameObject player)
     {
-       
-        life -=1;
+
+        life -= 1;
         updateLife?.Invoke(life);
         GameObject respawnPoint = GameObject.FindWithTag("Respawn");
         Instantiate(player, respawnPoint.transform.position, respawnPoint.transform.rotation);
-        
+
         //player.transform.position = respawnPoint.transform.position;
     }
 
@@ -124,6 +125,16 @@ public class GameManager : MonoBehaviour
         Debug.Log(selected);
 
         //gridObj.SetActive(true);
+    }
+
+    public void CandleButton()
+    {
+        //pickaxeMode = false;
+        currentBlock = candleBlock;
+        selected = BlockType.candle;
+        Debug.Log(selected);
+
+        gridObj.SetActive(true);
     }
 
     public void NormalButton()
@@ -161,10 +172,10 @@ public class GameManager : MonoBehaviour
         Debug.Log(selected);
     }
 
-    private void addBulletsNum (GameObject obj)
+    private void addBulletsNum(GameObject obj)
     {
         cannonBulletNum += 1;
-        
+
     }
 
     private void minusBulletNum(GameObject obj)
@@ -174,7 +185,7 @@ public class GameManager : MonoBehaviour
 
     public void updateGridObj(int levelNum)
     {
-        gridObj = GameObject.FindWithTag("grid"); 
+        gridObj = GameObject.FindWithTag("grid");
     }
 
     public enum BlockType
@@ -183,6 +194,7 @@ public class GameManager : MonoBehaviour
         normal,
         jump,
         spikes,
-        cannon
+        cannon,
+        candle
     }
 }

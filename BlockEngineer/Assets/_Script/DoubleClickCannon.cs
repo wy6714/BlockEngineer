@@ -127,8 +127,8 @@ public class DoubleClickCannon : MonoBehaviour
 
     private void OnDestroy()
     {
-        gridObj.SetActive(true);
         cannonOnHappens?.Invoke(false);
+        gridObj.SetActive(true);
     }
 }
 
