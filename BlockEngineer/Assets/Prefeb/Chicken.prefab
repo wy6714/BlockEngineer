@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4486315348228624645}
   - component: {fileID: 5404620730189277942}
-  - component: {fileID: 8794591227657279645}
+  - component: {fileID: 4858370484743294856}
   - component: {fileID: 8505779722235293434}
   - component: {fileID: 2219369999833819573}
   - component: {fileID: 3685101369379593547}
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8794591227657279645
+--- !u!114 &4858370484743294856
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,15 +97,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 179020787890246817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd8715b21e4d74fa9b26e6b1b080406b, type: 3}
+  m_Script: {fileID: 11500000, guid: d5a2859ea933c439e8233fdf1337f9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point1: {fileID: 1387732411503367765}
-  point2: {fileID: 4476188691180685355}
-  point3: {fileID: 1387732411503367765}
-  point4: {fileID: 4476188691180685355}
+  point1: {fileID: 4476188691180685355}
+  point2: {fileID: 1387732411503367765}
+  point3: {fileID: 4476188691180685355}
+  point4: {fileID: 1387732411503367765}
   speed: 3
   currentPoint: 0
+  isChickenTouchLight: 0
 --- !u!95 &8505779722235293434
 Animator:
   serializedVersion: 5

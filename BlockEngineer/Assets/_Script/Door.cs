@@ -41,6 +41,9 @@ public class Door : MonoBehaviour
         {
             if (isGetKey)
             {
+                //when player move from moving platform to door, player will not be child of moving platform
+                other.gameObject.transform.SetParent(null);
+
                 other.gameObject.transform.position = targetTrans.position;
                 Camera.main.transform.position = cameraTargetTrans.position;
 

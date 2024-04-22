@@ -8,8 +8,9 @@ public class sawH : MonoBehaviour
     [SerializeField] Transform point2;
     [SerializeField] Transform point3;
     [SerializeField] Transform point4;
-    [SerializeField] int speed = 3;
+    [SerializeField] protected int speed = 3;
     public Points currentPoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class sawH : MonoBehaviour
     {
         Movement();
     }
- 
+
     public void Movement()
     {
         switch (currentPoint)
@@ -53,7 +54,7 @@ public class sawH : MonoBehaviour
                 return;
         }
     }
-    public void goTo(Transform targetPointTrans, Points nextPoint)
+    public virtual void goTo(Transform targetPointTrans, Points nextPoint)
     {
         Vector2 direction = (targetPointTrans.position - transform.position).normalized;
         float distance = Vector2.Distance(transform.position, targetPointTrans.position);
@@ -64,11 +65,14 @@ public class sawH : MonoBehaviour
         }
         else
         {
+
             //transform.position += direction * speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, targetPointTrans.position,
                 speed * Time.deltaTime);
         }
     }
+
+
     public enum Points
     {
         go1,
@@ -76,7 +80,7 @@ public class sawH : MonoBehaviour
         go3,
         go4
     }
-    private void Flip()
+    protected void Flip()
     {
         Vector3 localScale = transform.localScale;
         localScale.x *= -1;
@@ -84,10 +88,11 @@ public class sawH : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue; 
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(point1.position, 0.2f);
         Gizmos.DrawWireSphere(point2.position, 0.2f);
         Gizmos.DrawWireSphere(point3.position, 0.2f);
         Gizmos.DrawWireSphere(point4.position, 0.2f);
     }
+
 }

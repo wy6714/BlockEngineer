@@ -4153,6 +4153,8 @@ MonoBehaviour:
   minusButtonAudio: {fileID: 2135584518}
   playButtonAudio: {fileID: 2135584517}
   selectButtonAudio: {fileID: 2135584520}
+  viewPreviousButtonAudio: {fileID: 0}
+  viewNextButtonAudio: {fileID: 0}
 --- !u!4 &279604043
 Transform:
   m_ObjectHideFlags: 0
@@ -11554,6 +11556,7 @@ MonoBehaviour:
   spikes: {fileID: 5717141227827753132, guid: 0004239196a994a008ca97c82ee3592b, type: 3}
   jumpBlock: {fileID: 3544895568339565626, guid: c3e690c4e74714334ab2241a3625e585, type: 3}
   cannonBlock: {fileID: 0}
+  candleBlock: {fileID: 0}
   pickaxeSprite: {fileID: 21300000, guid: 7f49b0e4ab1ad4759922af415064cb7c, type: 3}
   currentLevel: level1
   gridObj: {fileID: 0}
@@ -22727,6 +22730,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodR
       objectReference: {fileID: 0}
+    - target: {fileID: 1549411955603795403, guid: 7359b6b7f001940f6b539371b26e2916, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3619258453734882394, guid: 7359b6b7f001940f6b539371b26e2916, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -23796,18 +23803,18 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1726745864}
   - {fileID: 542371530}
   - {fileID: 1881056342}
   - {fileID: 1146961695}
-  - {fileID: 103094594}
+  - {fileID: 1726745864}
   - {fileID: 1822660618}
   - {fileID: 1985058550}
   - {fileID: 1606204627}
+  - {fileID: 1598521092}
+  - {fileID: 103094594}
   - {fileID: 6793045819199745568}
   - {fileID: 240636922}
   - {fileID: 1242324086}
-  - {fileID: 1598521092}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -29220,6 +29227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Whale
       objectReference: {fileID: 0}
+    - target: {fileID: 940823342481094142, guid: 17d346b6e50de4ce8be0356a5c98856b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4035503463787301877, guid: 17d346b6e50de4ce8be0356a5c98856b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -448.91
@@ -29678,6 +29689,10 @@ PrefabInstance:
     - target: {fileID: 7413789856982095434, guid: 0ac9978ff569842a2882ae41dff5a62f, type: 3}
       propertyPath: m_Name
       value: key
+      objectReference: {fileID: 0}
+    - target: {fileID: 7413789856982095434, guid: 0ac9978ff569842a2882ae41dff5a62f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30184,6 +30199,10 @@ PrefabInstance:
     - target: {fileID: 1390126936438196235, guid: b11176ae7832f452c865d206b91b18e8, type: 3}
       propertyPath: m_Name
       value: ClickGrid
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390126936438196235, guid: b11176ae7832f452c865d206b91b18e8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3827898539106800655, guid: b11176ae7832f452c865d206b91b18e8, type: 3}
       propertyPath: m_LocalPosition.x
