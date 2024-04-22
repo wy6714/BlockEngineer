@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     public static event Action<GameObject> getKeyHappens;
 
     private void OnEnable()
-    { 
+    {
         Grid.UndoHappen += undoPlayerPos;
     }
 
@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        transform.localScale = new Vector2(1,1); // keep player always face right after they respawn
+        transform.localScale = new Vector2(1, 1); // keep player always face right after they respawn
     }
 
     // Update is called once per frame
@@ -136,5 +136,10 @@ public class PlayerController : MonoBehaviour
         Debug.Log("current Pos is: " + transform.position);
         Debug.Log("player will move to: : " + currentSate.playerPos);
         transform.position = currentSate.playerPos;
+    }
+
+    public void callPlayerDie(GameObject obj)
+    {
+        playerDie?.Invoke(obj);
     }
 }

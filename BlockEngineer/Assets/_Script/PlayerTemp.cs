@@ -28,6 +28,13 @@ public class PlayerTemp : MonoBehaviour
         {
             DecreaseHealth(Time.deltaTime * healthChangeRate);
         }
+
+        if (currentHealth <= 0)
+        {
+            PlayerController scirpt = gameObject.GetComponent<PlayerController>();
+            scirpt.callPlayerDie(gameObject);
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
