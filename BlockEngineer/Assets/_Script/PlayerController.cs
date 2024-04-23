@@ -141,5 +141,6 @@ public class PlayerController : MonoBehaviour
     public void callPlayerDie(GameObject obj)
     {
         playerDie?.Invoke(obj);
+        Destroy(obj);
     }
 }
