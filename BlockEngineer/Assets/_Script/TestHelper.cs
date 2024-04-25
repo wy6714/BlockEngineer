@@ -12,6 +12,11 @@ public class TestHelper : MonoBehaviour
     public GameObject part3;
     public GameObject part4;
     public GameObject part5;
+    public Transform part1Trans;
+    public Transform part2Trans;
+    public Transform part3Trans;
+    public Transform part4Trans;
+    public Transform part5Trans;
     public static event Action<int> addFruitHappens;
 
     private void Start()
@@ -53,7 +58,8 @@ public class TestHelper : MonoBehaviour
         turnOffParts();
         part1.SetActive(true);
         setCamera(new Vector3(0, 0, 0));
-        setPlayerPos(new Vector3(-8.72f, -3.3f, 10));
+        //setPlayerPos(new Vector3(-8.72f, -3.3f, 10));
+        setPlayerPos(part1Trans.position);
         GameManager.gm.gridObj = GameObject.FindWithTag("grid");
         testHelperPanel.SetActive(false);
     }
@@ -62,7 +68,8 @@ public class TestHelper : MonoBehaviour
         turnOffParts();
         part2.SetActive(true);
         setCamera(new Vector3(20, 0, 0));
-        setPlayerPos(new Vector3(10.7f, -3.3f, 10));
+        //setPlayerPos(new Vector3(10.7f, -3.3f, 10));
+        setPlayerPos(part2Trans.position);
         GameManager.gm.gridObj = GameObject.FindWithTag("grid");
         testHelperPanel.SetActive(false);
     }
@@ -71,7 +78,8 @@ public class TestHelper : MonoBehaviour
         turnOffParts();
         part3.SetActive(true);
         setCamera(new Vector3(40, 0, 0));
-        setPlayerPos(new Vector3(30.5f, -3.3f, 10));
+        //setPlayerPos(new Vector3(30.5f, -3.3f, 10));
+        setPlayerPos(part3Trans.position);
         GameManager.gm.gridObj = GameObject.FindWithTag("grid");
         testHelperPanel.SetActive(false);
     }
@@ -80,7 +88,8 @@ public class TestHelper : MonoBehaviour
         turnOffParts();
         part4.SetActive(true);
         setCamera(new Vector3(60, 0, 0));
-        setPlayerPos(new Vector3(50.5f, -3.3f, 10));
+        //setPlayerPos(new Vector3(50.5f, -3.3f, 10));
+        setPlayerPos(part4Trans.position);
         GameManager.gm.gridObj = GameObject.FindWithTag("grid");
         testHelperPanel.SetActive(false);
     }
@@ -89,7 +98,8 @@ public class TestHelper : MonoBehaviour
         turnOffParts();
         part5.SetActive(true);
         setCamera(new Vector3(80, 0, 0));
-        setPlayerPos(new Vector3(70.5f, -3.3f, 10));
+        //setPlayerPos(new Vector3(70.5f, -3.3f, 10));
+        setPlayerPos(part5Trans.position);
         GameManager.gm.gridObj = GameObject.FindWithTag("grid");
         testHelperPanel.SetActive(false);
     }
@@ -97,7 +107,7 @@ public class TestHelper : MonoBehaviour
 
     public void turnOffParts()
     {
-        foreach(GameObject obj in levelObjects)
+        foreach (GameObject obj in levelObjects)
         {
             obj.SetActive(false);
         }
