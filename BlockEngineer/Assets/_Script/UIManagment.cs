@@ -9,7 +9,7 @@ public class UIManagment : MonoBehaviour
 {
     public TMP_Text fruitNumText;
     public TMP_Text lifeText;
-    
+
     public static int fruitNum;
     public GameObject askExchangePanel;
     public GameObject creditPanel;
@@ -110,19 +110,19 @@ public class UIManagment : MonoBehaviour
     public void lifeUI(int life)
     {
         Debug.Log("update life UI");
-        lifeText.text = GameManager.gm.life.ToString(); 
+        lifeText.text = GameManager.gm.life.ToString();
     }
 
     public void exchangeLifeFruit()
     {
-        
+
         GameManager.gm.life = GameManager.gm.life - 1;
         fruitNum = fruitNum + 10;
         lifeText.text = GameManager.gm.life.ToString();
         fruitNumText.text = fruitNum.ToString();
         askExchangePanel.SetActive(false);
-       
-       
+
+
     }
 
     public void closeaskExchangePanel()
@@ -132,9 +132,9 @@ public class UIManagment : MonoBehaviour
 
     public void exchangeButton()
     {
-      
+
         askExchangePanel.SetActive(true);
-       
+
     }
 
     public void undoFruit(Grid.GameState currentState)
@@ -152,7 +152,7 @@ public class UIManagment : MonoBehaviour
 
     public void buyBullet()
     {
-        if(fruitNum >= 10)
+        if (fruitNum >= 10)
         {
             GameManager.gm.cannonBulletNum += 1;
             bulletNumText.text = GameManager.gm.cannonBulletNum.ToString();
@@ -164,7 +164,7 @@ public class UIManagment : MonoBehaviour
         {
             NoMoneyUIAudioHappens?.Invoke(gameObject);
         }
-        
+
     }
 
     public void closeBuyBulletWindow()
@@ -177,5 +177,11 @@ public class UIManagment : MonoBehaviour
         fruitNum += addNum;
         fruitNumText.text = fruitNum.ToString();
     }
-    
+
+    public void addBullet()
+    {
+        GameManager.gm.cannonBulletNum += 1;
+        bulletNumText.text = GameManager.gm.cannonBulletNum.ToString();
+    }
+
 }

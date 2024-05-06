@@ -3366,6 +3366,11 @@ MonoBehaviour:
   part3: {fileID: 1195786014}
   part4: {fileID: 1212307496}
   part5: {fileID: 1461661175}
+  part1Trans: {fileID: 0}
+  part2Trans: {fileID: 0}
+  part3Trans: {fileID: 0}
+  part4Trans: {fileID: 0}
+  part5Trans: {fileID: 0}
 --- !u!4 &258416576
 Transform:
   m_ObjectHideFlags: 0
@@ -26960,7 +26965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6427721360283663847, guid: 38c165c0adf044566b0bfa56c30e2625, type: 3}
       propertyPath: nextLevel
-      value: temp
+      value: level3
       objectReference: {fileID: 0}
     - target: {fileID: 6915310187003444572, guid: 38c165c0adf044566b0bfa56c30e2625, type: 3}
       propertyPath: m_Name
