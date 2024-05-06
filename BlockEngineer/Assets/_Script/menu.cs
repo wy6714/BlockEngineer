@@ -10,20 +10,20 @@ public class menu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        instructionPanel.SetActive(false);
+        instructionPanel.SetActive(true);
         creditPanel.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void showInstruction()
     {
         creditPanel.SetActive(false);
-        instructionPanel.SetActive(true); 
+        instructionPanel.SetActive(true);
     }
 
     public void showCredit()
