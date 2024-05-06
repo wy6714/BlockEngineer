@@ -187,8 +187,8 @@ public class Grid : MonoBehaviour
 
         {
 
-            //return; // Do nothing, the click was on UI
-            UnityEngine.Debug.Log("on mouse over not work");
+            return; // Do nothing, the click was on UI
+            //UnityEngine.Debug.Log("on mouse over not work");
 
         }
         spriteRenderer.sprite = hoverSprite;
