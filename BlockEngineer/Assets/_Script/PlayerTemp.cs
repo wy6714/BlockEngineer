@@ -7,7 +7,8 @@ public class PlayerTemp : MonoBehaviour
 {
     public Slider healthSlider;
     public float maxHealth = 100f;
-    public float healthChangeRate = 5f;
+    public float healthDecreaseRate = 2f;
+    public float healthIncreaseRate = 20f;
 
     private float currentHealth;
     private bool insideCandleLight = false;
@@ -22,17 +23,21 @@ public class PlayerTemp : MonoBehaviour
     {
         if (insideCandleLight)
         {
-            IncreaseHealth(Time.deltaTime * healthChangeRate);
+            IncreaseHealth(Time.deltaTime * healthIncreaseRate);
         }
         else
         {
-            DecreaseHealth(Time.deltaTime * healthChangeRate);
+            DecreaseHealth(Time.deltaTime * healthDecreaseRate);
         }
 
         if (currentHealth <= 0)
         {
             PlayerController scirpt = gameObject.GetComponent<PlayerController>();
             scirpt.callPlayerDie(gameObject);
+        }
+        if (currentHealth >= 100)
+        {
+            currentHealth = 100;
         }
 
     }

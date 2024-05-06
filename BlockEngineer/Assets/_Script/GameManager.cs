@@ -197,4 +197,8 @@ public class GameManager : MonoBehaviour
         cannon,
         candle
     }
+    public void QuitButton()
+    {
+        Application.Quit();
+    }
 }

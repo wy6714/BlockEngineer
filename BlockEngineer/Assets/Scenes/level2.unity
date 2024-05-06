@@ -21358,6 +21358,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: bat text
       objectReference: {fileID: 0}
+    - target: {fileID: 2381380492640682763, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1024287160}
+    - target: {fileID: 2381380492640682763, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381380492640682763, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2465759975175534487, guid: e40b21ed11e3145918d6b37b50bd728d, type: 3}
       propertyPath: m_Name
       value: 2
